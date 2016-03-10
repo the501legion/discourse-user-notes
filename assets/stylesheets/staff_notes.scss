@@ -1,0 +1,23 @@
+.staff-notes-modal {
+  height: 300px;
+
+  .posted-by {
+    width: 30px;
+    float: left;
+  }
+  .cooked {
+    float: left;
+
+    p {
+      margin: 0 0 1em 0;
+    }
+  }
+
+  .staff-note {
+    margin-bottom: 1em;
+  }
+}
+
+.staff-notes-icon {
+  cursor: pointer;
+}

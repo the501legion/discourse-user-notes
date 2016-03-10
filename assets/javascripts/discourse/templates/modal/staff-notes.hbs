@@ -1,0 +1,16 @@
+<div class="modal-body staff-notes-modal">
+
+  {{#each model as |n|}}
+    <div class='staff-note'>
+      <div class='posted-by'>
+        {{avatar n.created_by imageSize="tiny"}}
+      </div>
+      <div class='cooked'>{{cook-text n.raw}}</div>
+      <div class='clearfix'></div>
+    </div>
+  {{/each}}
+
+  {{textarea value=newNote}}
+  {{d-button action="attachNote" label="staff_notes.attach" class="btn-primary" disabled=attachDisabled}}
+
+</div>

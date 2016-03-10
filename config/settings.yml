@@ -1,0 +1,4 @@
+plugins:
+  staff_notes_enabled:
+    default: false
+    client: true
