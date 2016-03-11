@@ -22,10 +22,15 @@ export default {
 
       function widgetShowStaffNotes() {
         showStaffNotes(this.attrs.user_id, count => {
-          this.scheduleRerender();
+          this.sendWidgetAction('refreshStaffNotes', count);
         });
       }
 
+      api.attachWidgetAction('post', 'refreshStaffNotes', function(count) {
+        const cfs = this.model.get('user_custom_fields') || {};
+        cfs.staff_notes_count = count;
+        this.model.set('user_custom_fields', cfs);
+      });
 
       const UserController = container.lookupFactory('controller:user');
       UserController.reopen({
@@ -43,19 +48,9 @@ export default {
         }
       });
 
-      const StaffNotesController = container.lookupFactory('controller:staff-notes');
-      const noteCount = StaffNotesController.noteCount;
-
       api.decorateWidget('poster-name:after', dec => {
         const cfs = dec.attrs.userCustomFields || {};
-
-        // If we know the count, use it
-        let c = noteCount[dec.attrs.user_id];
-        if (c === undefined && cfs.staff_notes_count) {
-          c = cfs.staff_notes_count;
-        }
-
-        if (c > 0) {
+        if (cfs.staff_notes_count > 0) {
           return dec.attach('staff-notes-icon');
         }
       });
