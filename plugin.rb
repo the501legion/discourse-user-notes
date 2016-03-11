@@ -71,10 +71,7 @@ after_initialize do
     end
 
     def created_by
-      user = User.where(id: object[:created_by]).first
-      return nil if user.blank?
-
-      BasicUserSerializer.new(user, scope: scope, root: false)
+      BasicUserSerializer.new(object[:created_by], scope: scope, root: false)
     end
 
     def created_at
@@ -94,7 +91,7 @@ after_initialize do
       notes = ::DiscourseStaffNotes.notes_for(params[:user_id])
       render json: {
         extras: { username: user.username },
-        staff_notes: serialize_data(notes, ::StaffNoteSerializer)
+        staff_notes: create_json(notes)
       }
     end
 
@@ -103,7 +100,7 @@ after_initialize do
       raise Discourse::NotFound if user.blank?
       staff_note = ::DiscourseStaffNotes.add_note(user, params[:staff_note][:raw], current_user.id)
 
-      render json: serialize_data(staff_note, ::StaffNoteSerializer)
+      render json: create_json(staff_note)
     end
 
     def destroy
@@ -114,6 +111,22 @@ after_initialize do
       render json: success_json
     end
 
+    protected
+
+      def create_json(obj)
+        # Avoid n+1
+        if obj.is_a?(Array)
+          by_ids = {}
+          User.where(id: obj.map {|o| o[:created_by] }).each do |u|
+            by_ids[u.id] = u
+          end
+          obj.each {|o| o[:created_by] = by_ids[o[:created_by].to_i] }
+        else
+          obj[:created_by] = User.where(id: obj[:created_by]).first
+        end
+
+        serialize_data(obj, ::StaffNoteSerializer)
+      end
   end
 
   whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
