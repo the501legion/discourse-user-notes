@@ -2,5 +2,5 @@ en:
   js:
     staff_notes:
       title: "Staff Notes"
-      attach: "Attach Note"
+      attach: "Attach Staff Note"
       remove: "Remove Note"
