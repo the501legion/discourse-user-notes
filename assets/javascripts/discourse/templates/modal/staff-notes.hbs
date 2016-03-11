@@ -3,14 +3,25 @@
   {{#each model as |n|}}
     <div class='staff-note'>
       <div class='posted-by'>
-        {{avatar n.created_by imageSize="tiny"}}
+        {{#user-link user=n.created_by}}
+          {{avatar n.created_by imageSize="small"}}
+        {{/user-link}}
       </div>
-      <div class='cooked'>{{cook-text n.raw}}</div>
+      <div class='note-contents'>
+        <div class='note-info'>
+          <span class='username'>{{n.created_by.username}}</span>
+          <span class='post-date'>{{age-with-tooltip n.created_at}}</span>
+        </div>
+
+        <div class='cooked'>
+          {{cook-text n.raw}}
+        </div>
+      </div>
+
       <div class='clearfix'></div>
     </div>
   {{/each}}
 
   {{textarea value=newNote}}
   {{d-button action="attachNote" label="staff_notes.attach" class="btn-primary" disabled=attachDisabled}}
-
 </div>
