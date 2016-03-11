@@ -27,21 +27,37 @@ after_initialize do
 
     def self.add_note(user_id, raw, created_by)
       notes = notes_for(user_id)
-      record = { id: SecureRandom.hex(16), raw: raw, created_by: created_by, created_at: Time.now }
+      record = { id: SecureRandom.hex(16), user_id: user_id, raw: raw, created_by: created_by, created_at: Time.now }
       notes << record
       ::PluginStore.set("staff_notes", key_for(user_id), notes)
 
       record
     end
 
+    def self.remove_note(user_id, note_id)
+      notes = notes_for(user_id)
+      notes.reject! {|n| n[:id] == note_id}
+
+      if notes.size > 0
+        ::PluginStore.set("staff_notes", key_for(user_id), notes)
+      else
+        ::PluginStore.remove("staff_notes", key_for(user_id))
+      end
+
+    end
+
   end
 
   require_dependency 'application_serializer'
   class ::StaffNoteSerializer < ApplicationSerializer
-    attributes :id, :raw, :created_by, :created_at
+    attributes :id, :user_id, :raw, :created_by, :created_at
 
     def id
       object[:id]
+    end
+
+    def user_id
+      object[:user_id]
     end
 
     def raw
@@ -85,11 +101,21 @@ after_initialize do
 
       render json: serialize_data(staff_note, ::StaffNoteSerializer)
     end
+
+    def destroy
+      user = User.where(id: params[:user_id]).first
+      raise Discourse::NotFound if user.blank?
+
+      ::DiscourseStaffNotes.remove_note(user.id, params[:id])
+      render json: success_json
+    end
+
   end
 
   DiscourseStaffNotes::Engine.routes.draw do
     get '/' => 'staff_notes#index'
     post '/' => 'staff_notes#create'
+    delete '/:id' => 'staff_notes#destroy'
   end
 
   Discourse::Application.routes.append do

@@ -23,6 +23,10 @@ export default Ember.Controller.extend({
         this.set('newNote', '');
         this.get('model').pushObject(note);
       }).catch(popupAjaxError).finally(() => this.set('saving', false));
+    },
+
+    removeNote(note) {
+      note.destroyRecord().then(() => this.get('model').removeObject(note));
     }
   }
 });

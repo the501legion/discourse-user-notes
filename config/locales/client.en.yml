@@ -3,3 +3,4 @@ en:
     staff_notes:
       title: "Staff Notes"
       attach: "Attach Note"
+      remove: "Remove Note"
