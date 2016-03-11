@@ -8,7 +8,12 @@ export default {
     if (!siteSettings.staff_notes_enabled) { return; }
 
     withPluginApi('0.2', api => {
-      api.decorateWidget('poster-name:after', dec => dec.attach('staff-notes-icon'));
+      api.decorateWidget('poster-name:after', dec => {
+        const cfs = dec.attrs.userCustomFields || {};
+        if (cfs.has_staff_notes) {
+          return dec.attach('staff-notes-icon');
+        }
+      });
 
       api.createWidget('staff-notes-icon', {
         tagName: 'span.staff-notes-icon',

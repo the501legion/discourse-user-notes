@@ -7,6 +7,8 @@ enabled_site_setting :staff_notes_enabled
 
 register_asset 'stylesheets/staff_notes.scss'
 
+STAFF_NOTES_FIELD = "has_staff_notes"
+
 after_initialize do
 
   require_dependency 'user'
@@ -25,25 +27,29 @@ after_initialize do
       PluginStore.get('staff_notes', key_for(user_id)) || []
     end
 
-    def self.add_note(user_id, raw, created_by)
-      notes = notes_for(user_id)
-      record = { id: SecureRandom.hex(16), user_id: user_id, raw: raw, created_by: created_by, created_at: Time.now }
+    def self.add_note(user, raw, created_by)
+      notes = notes_for(user.id)
+      record = { id: SecureRandom.hex(16), user_id: user.id, raw: raw, created_by: created_by, created_at: Time.now }
       notes << record
-      ::PluginStore.set("staff_notes", key_for(user_id), notes)
+      ::PluginStore.set("staff_notes", key_for(user.id), notes)
+
+      user.custom_fields[STAFF_NOTES_FIELD] = true
+      user.save_custom_fields
 
       record
     end
 
-    def self.remove_note(user_id, note_id)
-      notes = notes_for(user_id)
+    def self.remove_note(user, note_id)
+      notes = notes_for(user.id)
       notes.reject! {|n| n[:id] == note_id}
 
       if notes.size > 0
-        ::PluginStore.set("staff_notes", key_for(user_id), notes)
+        ::PluginStore.set("staff_notes", key_for(user.id), notes)
       else
-        ::PluginStore.remove("staff_notes", key_for(user_id))
+        ::PluginStore.remove("staff_notes", key_for(user.id))
+        user.custom_fields.delete(STAFF_NOTES_FIELD)
+        user.save_custom_fields
       end
-
     end
 
   end
@@ -93,11 +99,9 @@ after_initialize do
     end
 
     def create
-      user_id = params[:staff_note][:user_id]
-
-      user = User.where(id: user_id).first
+      user = User.where(id: params[:staff_note][:user_id]).first
       raise Discourse::NotFound if user.blank?
-      staff_note = ::DiscourseStaffNotes.add_note(user.id, params[:staff_note][:raw], current_user.id)
+      staff_note = ::DiscourseStaffNotes.add_note(user, params[:staff_note][:raw], current_user.id)
 
       render json: serialize_data(staff_note, ::StaffNoteSerializer)
     end
@@ -106,11 +110,13 @@ after_initialize do
       user = User.where(id: params[:user_id]).first
       raise Discourse::NotFound if user.blank?
 
-      ::DiscourseStaffNotes.remove_note(user.id, params[:id])
+      ::DiscourseStaffNotes.remove_note(user, params[:id])
       render json: success_json
     end
 
   end
+
+  whitelist_staff_user_custom_field(STAFF_NOTES_FIELD)
 
   DiscourseStaffNotes::Engine.routes.draw do
     get '/' => 'staff_notes#index'

@@ -8,4 +8,3 @@ export default RestAdapter.extend({
     return ajax(`${path}?user_id=${userId}`, { method: 'DELETE' });
   }
 });
-
