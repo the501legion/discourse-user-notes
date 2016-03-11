@@ -7,7 +7,7 @@ enabled_site_setting :staff_notes_enabled
 
 register_asset 'stylesheets/staff_notes.scss'
 
-STAFF_NOTES_FIELD = "has_staff_notes"
+STAFF_NOTE_COUNT_FIELD = "staff_notes_count"
 
 after_initialize do
 
@@ -33,7 +33,7 @@ after_initialize do
       notes << record
       ::PluginStore.set("staff_notes", key_for(user.id), notes)
 
-      user.custom_fields[STAFF_NOTES_FIELD] = true
+      user.custom_fields[STAFF_NOTE_COUNT_FIELD] = notes.size
       user.save_custom_fields
 
       record
@@ -47,9 +47,9 @@ after_initialize do
         ::PluginStore.set("staff_notes", key_for(user.id), notes)
       else
         ::PluginStore.remove("staff_notes", key_for(user.id))
-        user.custom_fields.delete(STAFF_NOTES_FIELD)
-        user.save_custom_fields
       end
+      user.custom_fields[STAFF_NOTE_COUNT_FIELD] = notes.size
+      user.save_custom_fields
     end
 
   end
@@ -116,7 +116,7 @@ after_initialize do
 
   end
 
-  whitelist_staff_user_custom_field(STAFF_NOTES_FIELD)
+  whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
 
   DiscourseStaffNotes::Engine.routes.draw do
     get '/' => 'staff_notes#index'
