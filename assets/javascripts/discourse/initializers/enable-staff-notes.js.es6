@@ -17,9 +17,19 @@ export default {
         });
       }
 
+      const StaffNotesController = container.lookupFactory('controller:staff-notes');
+      const noteCount = StaffNotesController.noteCount;
+
       api.decorateWidget('poster-name:after', dec => {
         const cfs = dec.attrs.userCustomFields || {};
-        if (cfs.has_staff_notes) {
+
+        // If we know the count, use it
+        const c = noteCount[dec.attrs.user_id];
+        if (c !== undefined) {
+          if (c > 0) {
+            return dec.attach('staff-notes-icon');
+          }
+        } else if (cfs.has_staff_notes) {
           return dec.attach('staff-notes-icon');
         }
       });
