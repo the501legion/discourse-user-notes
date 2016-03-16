@@ -2,3 +2,6 @@ plugins:
   staff_notes_enabled:
     default: false
     client: true
+  staff_notes_moderators_delete:
+    default: true
+    client: false

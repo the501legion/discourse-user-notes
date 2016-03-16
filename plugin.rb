@@ -56,7 +56,7 @@ after_initialize do
 
   require_dependency 'application_serializer'
   class ::StaffNoteSerializer < ApplicationSerializer
-    attributes :id, :user_id, :raw, :created_by, :created_at
+    attributes :id, :user_id, :raw, :created_by, :created_at, :can_delete
 
     def id
       object[:id]
@@ -76,6 +76,10 @@ after_initialize do
 
     def created_at
       object[:created_at]
+    end
+
+    def can_delete
+      scope.can_delete_staff_notes?
     end
   end
 
@@ -107,6 +111,8 @@ after_initialize do
       user = User.where(id: params[:user_id]).first
       raise Discourse::NotFound if user.blank?
 
+      raise Discourse::InvalidAccess.new unless guardian.can_delete_staff_notes?
+
       ::DiscourseStaffNotes.remove_note(user, params[:id])
       render json: success_json
     end
@@ -130,6 +136,10 @@ after_initialize do
   end
 
   whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
+
+  add_to_class(Guardian, :can_delete_staff_notes?) do
+    (SiteSetting.staff_notes_moderators_delete? && user.staff?) || user.admin?
+  end
 
   DiscourseStaffNotes::Engine.routes.draw do
     get '/' => 'staff_notes#index'

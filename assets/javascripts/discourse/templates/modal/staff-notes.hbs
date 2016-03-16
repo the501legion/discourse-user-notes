@@ -12,14 +12,15 @@
           <span class='username'>{{n.created_by.username}}</span>
           <span class='post-date'>{{age-with-tooltip n.created_at}}</span>
 
-          <span class='controls'>
-            {{d-button action="removeNote"
-                       actionParam=n
-                       icon="times"
-                       class="btn-small btn-danger"
-                       title="staff_notes.remove"}}
-          </span>
-
+          {{#if n.can_delete}}
+            <span class='controls'>
+              {{d-button action="removeNote"
+                         actionParam=n
+                         icon="times"
+                         class="btn-small btn-danger"
+                         title="staff_notes.remove"}}
+            </span>
+          {{/if}}
         </div>
 
         <div class='cooked'>

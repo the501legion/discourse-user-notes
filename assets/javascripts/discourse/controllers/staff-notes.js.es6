@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
         const notes = this.get('model');
         notes.removeObject(note);
         this._refreshCount();
-      });
+      }).catch(popupAjaxError);
     }
   }
 });

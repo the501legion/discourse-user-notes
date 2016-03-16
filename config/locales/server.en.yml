@@ -1,3 +1,4 @@
 en:
   site_settings:
     staff_notes_enabled: "Allow staff users to attach notes to users"
+    staff_notes_moderators_delete: "Allow moderators to delete staff notes"
