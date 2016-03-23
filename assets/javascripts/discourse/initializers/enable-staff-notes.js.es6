@@ -51,7 +51,10 @@ export default {
         }
       });
 
-      api.decorateWidget('poster-name:after', dec => {
+
+      const mobileView = api.container.lookup('site:main').mobileView;
+      const loc = mobileView ? 'before' : 'after';
+      api.decorateWidget(`poster-name:${loc}`, dec => {
         const cfs = dec.attrs.userCustomFields || {};
         if (cfs.staff_notes_count > 0) {
           return dec.attach('staff-notes-icon');

@@ -39,5 +39,8 @@
 }
 
 .staff-notes-icon {
+  .mobile-view & {
+    float: right;
+  }
   cursor: pointer;
 }
