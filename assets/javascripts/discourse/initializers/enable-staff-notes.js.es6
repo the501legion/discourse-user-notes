@@ -6,7 +6,8 @@ export default {
   name: 'enable-staff-notes',
   initialize(container) {
     const siteSettings = container.lookup('site-settings:main');
-    if (!siteSettings.staff_notes_enabled) { return; }
+    const currentUser = container.lookup('current-user:main');
+    if (!siteSettings.staff_notes_enabled || !currentUser || !currentUser.staff) { return; }
 
     const store = container.lookup('store:main');
 
