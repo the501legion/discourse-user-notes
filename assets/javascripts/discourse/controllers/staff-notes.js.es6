@@ -37,11 +37,16 @@ export default Ember.Controller.extend({
     },
 
     removeNote(note) {
-      note.destroyRecord().then(() => {
-        const notes = this.get('model');
-        notes.removeObject(note);
-        this._refreshCount();
-      }).catch(popupAjaxError);
+
+      bootbox.confirm(I18n.t("staff_notes.delete_confirm"), I18n.t("no_value"), I18n.t("yes_value"), result => {
+        if (result) {
+          note.destroyRecord().then(() => {
+            const notes = this.get('model');
+            notes.removeObject(note);
+            this._refreshCount();
+          }).catch(popupAjaxError);
+        }
+      });
     }
   }
 });

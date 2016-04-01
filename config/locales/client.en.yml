@@ -5,3 +5,4 @@ en:
       attach: "Attach Staff Note"
       remove: "Remove Note"
       show: "Staff Notes ({{count}})"
+      delete_confirm: "Are you sure you want to delete that staff note?"
