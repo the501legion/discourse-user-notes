@@ -151,4 +151,12 @@ after_initialize do
     mount ::DiscourseStaffNotes::Engine, at: "/staff_notes"
   end
 
+  add_model_callback :warning, :after_create do
+    user = User.find_by_id(self.user_id)
+    created_by_user = User.find_by_id(self.created_by_id)
+    warning_topic = Topic.find_by_id(self.topic_id)
+    raw_note = I18n.t("staff_notes.official_warning", username: created_by_user.username, warning_link: "[#{warning_topic.title}](#{warning_topic.url})")
+    ::DiscourseStaffNotes.add_note(user, raw_note, Discourse::SYSTEM_USER_ID)
+  end
+
 end
