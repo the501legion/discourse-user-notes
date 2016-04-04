@@ -2,3 +2,6 @@ en:
   site_settings:
     staff_notes_enabled: "Allow staff users to attach notes to users"
     staff_notes_moderators_delete: "Allow moderators to delete staff notes"
+
+  staff_notes:
+    official_warning: "Received an official warning from @%{username} -- %{warning_link}"
