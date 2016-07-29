@@ -1,6 +1,7 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 import showModal from 'discourse/lib/show-modal';
 import loadScript from 'discourse/lib/load-script';
+import { iconNode } from 'discourse/helpers/fa-icon';
 
 export default {
   name: 'enable-staff-notes',
@@ -77,7 +78,11 @@ export default {
         click: widgetShowStaffNotes,
 
         html() {
-          return this.attach('emoji', { name: 'pencil' });
+          if (siteSettings.enable_emoji) {
+            return this.attach('emoji', { name: 'pencil' });
+          } else {
+            return iconNode('sticky-note');
+          }
         }
       });
     });
