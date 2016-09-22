@@ -1,7 +1,7 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 import showModal from 'discourse/lib/show-modal';
 import loadScript from 'discourse/lib/load-script';
-import { iconNode } from 'discourse/helpers/fa-icon';
+import { iconNode } from 'discourse/helpers/fa-icon-node';
 
 export default {
   name: 'enable-staff-notes',
