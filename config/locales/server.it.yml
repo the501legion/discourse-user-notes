@@ -1,0 +1,7 @@
+it:
+  site_settings:
+    staff_notes_enabled: "Abilitare gli utenti dello staff ad allegare note agli utenti"
+    staff_notes_moderators_delete: "Abilitare i moderatori ad eliminare note dello staff"
+
+  staff_notes:
+    official_warning: "Ricevuto un richiamo ufficiale da @%{username} -- %{warning_link}"
