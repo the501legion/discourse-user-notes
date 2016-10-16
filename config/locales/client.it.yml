@@ -1,0 +1,8 @@
+it:
+  js:
+    staff_notes:
+      title: "Note Staff"
+      attach: "Allega Nota Staff"
+      remove: "Rimuovi Nota Staff"
+      show: "Note Staff ({{count}})"
+      delete_confirm: "Sei sicuro di voler eliminare questa nota staff?"
