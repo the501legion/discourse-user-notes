@@ -1,5 +1,5 @@
 import RestAdapter from 'discourse/adapters/rest';
-const ajax = Discourse.ajax;
+import { ajax } from 'discourse/lib/ajax';
 
 export default RestAdapter.extend({
   destroyRecord(store, type, record) {
