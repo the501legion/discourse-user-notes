@@ -16,7 +16,11 @@ export default {
       function showStaffNotes(userId, callback) {
         return loadScript('defer/html-sanitizer-bundle').then(() => {
           return store.find('staff-note', { user_id: userId }).then(model => {
-            const controller = showModal('staff-notes', { model, title: 'staff_notes.title' });
+            const controller = showModal('staff-notes', {
+              model,
+              title: 'staff_notes.title',
+              addModalBodyView: true
+            });
             controller.reset();
             controller.set('userId', userId);
             controller.set('callback', callback);
