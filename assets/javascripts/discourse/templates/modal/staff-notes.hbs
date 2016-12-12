@@ -1,5 +1,4 @@
-<div class="modal-body staff-notes-modal">
-
+{{#d-modal-body class="staff-notes-modal"}}
   {{#each model as |n|}}
     <div class='staff-note'>
       <div class='posted-by'>
@@ -34,4 +33,4 @@
 
   {{textarea value=newNote}}
   {{d-button action="attachNote" label="staff_notes.attach" class="btn-primary" disabled=attachDisabled}}
-</div>
+{{/d-modal-body}}

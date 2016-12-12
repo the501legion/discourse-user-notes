@@ -1,7 +1,6 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
-import showModal from 'discourse/lib/show-modal';
-import loadScript from 'discourse/lib/load-script';
 import { iconNode } from 'discourse/helpers/fa-icon-node';
+import { showStaffNotes } from 'discourse/plugins/staff-notes/discourse-staff-notes/lib/staff-notes';
 
 export default {
   name: 'enable-staff-notes',
@@ -11,26 +10,9 @@ export default {
     if (!siteSettings.staff_notes_enabled || !currentUser || !currentUser.staff) { return; }
 
     const store = container.lookup('store:main');
-
     withPluginApi('0.2', api => {
-      function showStaffNotes(userId, callback) {
-        return loadScript('defer/html-sanitizer-bundle').then(() => {
-          return store.find('staff-note', { user_id: userId }).then(model => {
-            const controller = showModal('staff-notes', {
-              model,
-              title: 'staff_notes.title',
-              addModalBodyView: true
-            });
-            controller.reset();
-            controller.set('userId', userId);
-            controller.set('callback', callback);
-            return controller;
-          });
-        });
-      }
-
       function widgetShowStaffNotes() {
-        showStaffNotes(this.attrs.user_id, count => {
+        showStaffNotes(store, this.attrs.user_id, count => {
           this.sendWidgetAction('refreshStaffNotes', count);
         });
       }
@@ -52,11 +34,10 @@ export default {
         actions: {
           showStaffNotes() {
             const user = this.get('model');
-            showStaffNotes(user.get('id'), count => this.set('staffNotesCount', count));
+            showStaffNotes(store, user.get('id'), count => this.set('staffNotesCount', count));
           }
         }
       });
-
 
       const mobileView = api.container.lookup('site:main').mobileView;
       const loc = mobileView ? 'before' : 'after';
