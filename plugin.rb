@@ -151,7 +151,7 @@ after_initialize do
     mount ::DiscourseStaffNotes::Engine, at: "/staff_notes"
   end
 
-  add_model_callback :warning, :after_create do
+  add_model_callback :user_warning, :after_create do
     user = User.find_by_id(self.user_id)
     created_by_user = User.find_by_id(self.created_by_id)
     warning_topic = Topic.find_by_id(self.topic_id)
