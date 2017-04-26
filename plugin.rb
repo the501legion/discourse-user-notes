@@ -2,6 +2,7 @@
 # about: Gives the ability for staff members to attach notes to users
 # version: 0.0.2
 # authors: Robin Ward
+# url: https://github.com/discourse/discourse-staff-notes
 
 enabled_site_setting :staff_notes_enabled
 
