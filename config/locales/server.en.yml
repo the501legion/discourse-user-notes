@@ -5,4 +5,4 @@ en:
 
   staff_notes:
     official_warning: "Received an official warning from @%{username} -- %{warning_link}"
-    user_suspended: "@%{username} suspended this account till %{suspended_till}. Reason: %{reason}"
+    user_suspended: "@%{username} suspended this account until %{suspended_till}. Reason: %{reason}"
