@@ -160,4 +160,12 @@ after_initialize do
     ::DiscourseStaffNotes.add_note(user, raw_note, Discourse::SYSTEM_USER_ID)
   end
 
+  add_model_callback(UserHistory, :after_commit, on: :create) do
+    return unless self.action == UserHistory.actions[:suspend_user]
+    target_user = User.find_by_id(self.target_user_id)
+    created_by_user = User.find_by_id(self.acting_user_id)
+    raw_note = I18n.t("staff_notes.user_suspended", username: created_by_user.username, suspended_till: I18n.l(target_user.suspended_till, format: :date_only), reason: self.details)
+    ::DiscourseStaffNotes.add_note(target_user, raw_note, Discourse::SYSTEM_USER_ID)
+  end
+
 end
