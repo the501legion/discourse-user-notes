@@ -11,7 +11,7 @@ describe UserHistory do
       end
 
       it "should create staff note for suspension" do
-        UserHistory.create!({action: UserHistory.actions[:suspend_user], target_user_id: user.id, acting_user_id: admin.id})
+        UserHistory.create!(action: UserHistory.actions[:suspend_user], target_user_id: user.id, acting_user_id: admin.id)
 
         expect(PluginStore.get('staff_notes', "notes:#{user.id}")).to be_present
       end

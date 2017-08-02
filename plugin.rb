@@ -42,7 +42,7 @@ after_initialize do
 
     def self.remove_note(user, note_id)
       notes = notes_for(user.id)
-      notes.reject! {|n| n[:id] == note_id}
+      notes.reject! { |n| n[:id] == note_id }
 
       if notes.size > 0
         ::PluginStore.set("staff_notes", key_for(user.id), notes)
@@ -124,10 +124,10 @@ after_initialize do
         # Avoid n+1
         if obj.is_a?(Array)
           by_ids = {}
-          User.where(id: obj.map {|o| o[:created_by] }).each do |u|
+          User.where(id: obj.map { |o| o[:created_by] }).each do |u|
             by_ids[u.id] = u
           end
-          obj.each {|o| o[:created_by] = by_ids[o[:created_by].to_i] }
+          obj.each { |o| o[:created_by] = by_ids[o[:created_by].to_i] }
         else
           obj[:created_by] = User.where(id: obj[:created_by]).first
         end
