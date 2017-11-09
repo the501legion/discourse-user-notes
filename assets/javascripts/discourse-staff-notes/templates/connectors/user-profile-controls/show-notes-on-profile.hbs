@@ -1,9 +1,1 @@
-{{#if siteSettings.staff_notes_enabled}}
-  {{#if currentUser.staff}}
-    {{#if staffNotesCount}}
-      <li><a {{action "showStaffNotes"}} href class="btn">{{fa-icon "pencil"}}{{i18n 'staff_notes.show' count=staffNotesCount}}</a></li>
-    {{else}}
-      <li><a {{action "showStaffNotes"}} href class="btn">{{fa-icon "pencil"}}{{i18n 'staff_notes.title'}}</a></li>
-    {{/if}}
-  {{/if}}
-{{/if}}
+<li>{{show-staff-notes show="showStaffNotes" count=staffNotesCount}}</li>

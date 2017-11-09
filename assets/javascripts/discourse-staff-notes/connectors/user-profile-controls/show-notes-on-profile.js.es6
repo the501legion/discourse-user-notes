@@ -9,7 +9,10 @@ export default {
 
   setupComponent(args, component) {
     const { model } = args;
-    component.set('staffNotesCount', model.get('custom_fields.staff_notes_count') || 0);
+    component.set(
+      'staffNotesCount',
+      model.get('staff_notes_count') || model.get('custom_fields.staff_notes_count') || 0
+    );
   },
 
   actions: {

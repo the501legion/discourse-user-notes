@@ -1,0 +1,8 @@
+<a {{action "show"}} href class="btn">
+  {{fa-icon "pencil"}}
+  {{#if showCount}}
+    {{i18n 'staff_notes.show' count=count}}
+  {{else}}
+    {{i18n 'staff_notes.title'}}
+  {{/if}}
+</a>

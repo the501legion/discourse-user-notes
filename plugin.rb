@@ -142,6 +142,10 @@ after_initialize do
     (SiteSetting.staff_notes_moderators_delete? && user.staff?) || user.admin?
   end
 
+  add_to_serializer(:admin_detailed_user, :staff_notes_count, false) do
+    object.custom_fields && object.custom_fields['staff_notes_count'].to_i
+  end
+
   DiscourseStaffNotes::Engine.routes.draw do
     get '/' => 'staff_notes#index'
     post '/' => 'staff_notes#create'
