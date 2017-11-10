@@ -1,4 +1,4 @@
-import { showStaffNotes } from 'discourse/plugins/staff-notes/discourse-staff-notes/lib/staff-notes';
+import { showStaffNotes } from 'discourse/plugins/discourse-staff-notes/discourse-staff-notes/lib/staff-notes';
 import { getOwner } from 'discourse-common/lib/get-owner';
 
 export default {

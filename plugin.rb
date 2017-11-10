@@ -1,4 +1,4 @@
-# name: staff-notes
+# name: discourse-staff-notes
 # about: Gives the ability for staff members to attach notes to users
 # version: 0.0.2
 # authors: Robin Ward
