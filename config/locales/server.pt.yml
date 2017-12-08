@@ -1,7 +1,13 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
 pt:
   site_settings:
     staff_notes_enabled: "Permitir que membros de equipa adicionem notas a utilizadores?"
     staff_notes_moderators_delete: "Permitir que moderadores removam notas de equipa?"
-
   staff_notes:
     official_warning: "Recebeu um aviso oficial de @%{username} -- %{warning_link}"
