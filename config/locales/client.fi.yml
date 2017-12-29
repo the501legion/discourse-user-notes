@@ -5,4 +5,11 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fi: {}
+fi:
+  js:
+    staff_notes:
+      title: "Henkilökunnan huomiot"
+      attach: "Lisää henkilökunnan huomio"
+      remove: "Poista henkilökunnan huomio"
+      show: "Henkilökunnan huomioita ({{count}})"
+      delete_confirm: "Oletko varma että haluat poistaa henkilökunnan huomion?"

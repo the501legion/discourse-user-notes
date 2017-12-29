@@ -5,4 +5,11 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-nb_NO: {}
+nb_NO:
+  js:
+    staff_notes:
+      title: "Parsonalnotater"
+      attach: "Legg ved personalnotat"
+      remove: "Fjern personalnotat"
+      show: "Personalnotater ({{count}})"
+      delete_confirm: "Er du sikker på at du ønsker å slette dette personalnotatet?"

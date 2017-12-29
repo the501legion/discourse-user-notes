@@ -5,4 +5,10 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pl_PL: {}
+pl_PL:
+  site_settings:
+    staff_notes_enabled: "Pozwólpracownikom dołączać uwagi do użytkowników"
+    staff_notes_moderators_delete: "Zezwalaj moderatorom na usuwanie notatek dla pracowników"
+  staff_notes:
+    official_warning: "Otrzymano oficjalne ostrzeżenie od @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} zawiesiłeś to konto do %{suspended_till}. Powód: %{reason}"

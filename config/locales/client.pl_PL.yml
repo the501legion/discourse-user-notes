@@ -5,4 +5,11 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pl_PL: {}
+pl_PL:
+  js:
+    staff_notes:
+      title: "Notatki służbowe"
+      attach: "Dołącz notatkę dla pracowników"
+      remove: "Usuń notatkę dla pracowników"
+      show: "Notatki służbowe  ({{count}})"
+      delete_confirm: "Czy na pewno chcesz usunąć tę notatkę pracowników?"

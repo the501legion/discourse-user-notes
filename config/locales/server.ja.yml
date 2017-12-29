@@ -5,4 +5,10 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ja: {}
+ja:
+  site_settings:
+    staff_notes_enabled: "スタッフがユーザにメモを付けることを許可"
+    staff_notes_moderators_delete: "モデレーターがスタッフの付けたメモを削除することを許可"
+  staff_notes:
+    official_warning: "@%{username} -- %{warning_link} から、公式な警告を受けました"
+    user_suspended: "@%{username} \nこのアカウントは、%{suspended_till}まで無効化されました。\n理由:%{reason}"

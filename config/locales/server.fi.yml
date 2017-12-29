@@ -5,4 +5,10 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-fi: {}
+fi:
+  site_settings:
+    staff_notes_enabled: "Salli henkilökunnan lisätä huomioita käyttäjiin liittyen"
+    staff_notes_moderators_delete: "Salli valvojien poistaa henilökunnan huomioita"
+  staff_notes:
+    official_warning: "%{username} antoi virallisen varoituksen - %{warning_link}"
+    user_suspended: "@%{username} hyllytti käyttäjätilin %{suspended_till} asti. Syy: %{reason}"

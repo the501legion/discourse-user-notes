@@ -5,4 +5,10 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-de: {}
+de:
+  site_settings:
+    staff_notes_enabled: "Erlaube dem Team, Benutzer mit Notizen zu versehen"
+    staff_notes_moderators_delete: "Erlaube Moderatoren, Team-Notizen zu löschen"
+  staff_notes:
+    official_warning: "Hat eine offizielle Warnung erhalten von @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} hat dieses Konto gesperrt bis %{suspended_till}. Grund: %{reason}"

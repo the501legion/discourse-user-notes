@@ -5,4 +5,11 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-de: {}
+de:
+  js:
+    staff_notes:
+      title: "Team-Notizen"
+      attach: "Team-Notiz hinzufügen"
+      remove: "Team-Notiz entfernen"
+      show: "Team-Notizen ({{count}})"
+      delete_confirm: "Bist du sicher, dass du diese Team-Notiz entfernen möchtest?"
