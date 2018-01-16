@@ -1,5 +1,5 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
-import { iconNode } from 'discourse/helpers/fa-icon-node';
+import { iconNode } from 'discourse-common/lib/icon-library';
 import { showStaffNotes } from 'discourse/plugins/discourse-staff-notes/discourse-staff-notes/lib/staff-notes';
 
 export default {
@@ -10,10 +10,12 @@ export default {
     if (!siteSettings.staff_notes_enabled || !currentUser || !currentUser.staff) { return; }
 
     const store = container.lookup('store:main');
-    withPluginApi('0.2', api => {
+    withPluginApi('0.8.15', api => {
       function widgetShowStaffNotes() {
         showStaffNotes(store, this.attrs.user_id, count => {
           this.sendWidgetAction('refreshStaffNotes', count);
+        }, {
+          postId: this.attrs.id
         });
       }
 
@@ -23,8 +25,7 @@ export default {
         this.model.set('user_custom_fields', cfs);
       });
 
-      const UserController = container.lookupFactory('controller:user');
-      UserController.reopen({
+      api.modifyClass('controller:user', {
         staffNotesCount: null,
 
         _modelChanged: function() {

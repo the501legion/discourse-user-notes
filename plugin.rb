@@ -28,9 +28,18 @@ after_initialize do
       PluginStore.get('staff_notes', key_for(user_id)) || []
     end
 
-    def self.add_note(user, raw, created_by)
+    def self.add_note(user, raw, created_by, opts = nil)
+      opts ||= {}
+
       notes = notes_for(user.id)
-      record = { id: SecureRandom.hex(16), user_id: user.id, raw: raw, created_by: created_by, created_at: Time.now }
+      record = {
+        id: SecureRandom.hex(16),
+        user_id: user.id,
+        raw: raw,
+        created_by: created_by,
+        created_at: Time.now
+      }.merge(opts)
+
       notes << record
       ::PluginStore.set("staff_notes", key_for(user.id), notes)
 
@@ -57,7 +66,17 @@ after_initialize do
 
   require_dependency 'application_serializer'
   class ::StaffNoteSerializer < ApplicationSerializer
-    attributes :id, :user_id, :raw, :created_by, :created_at, :can_delete
+    attributes(
+      :id,
+      :user_id,
+      :raw,
+      :created_by,
+      :created_at,
+      :can_delete,
+      :post_id,
+      :post_url,
+      :post_title
+    )
 
     def id
       object[:id]
@@ -82,6 +101,22 @@ after_initialize do
     def can_delete
       scope.can_delete_staff_notes?
     end
+
+    def post_id
+      object[:post_id]
+    end
+
+    def post_url
+      object[:post].try(:url)
+    end
+
+    def post_title
+      object[:post].try(:title)
+    end
+
+    def topic_id
+      object[:topic_id]
+    end
   end
 
   require_dependency 'application_controller'
@@ -103,7 +138,17 @@ after_initialize do
     def create
       user = User.where(id: params[:staff_note][:user_id]).first
       raise Discourse::NotFound if user.blank?
-      staff_note = ::DiscourseStaffNotes.add_note(user, params[:staff_note][:raw], current_user.id)
+      extras = {}
+      if post_id = params[:staff_note][:post_id]
+        extras[:post_id] = post_id
+      end
+
+      staff_note = ::DiscourseStaffNotes.add_note(
+        user,
+        params[:staff_note][:raw],
+        current_user.id,
+        extras
+      )
 
       render json: create_json(staff_note)
     end
@@ -123,13 +168,21 @@ after_initialize do
       def create_json(obj)
         # Avoid n+1
         if obj.is_a?(Array)
-          by_ids = {}
+          users_by_id = {}
+          posts_by_id = {}
           User.where(id: obj.map { |o| o[:created_by] }).each do |u|
-            by_ids[u.id] = u
+            users_by_id[u.id] = u
           end
-          obj.each { |o| o[:created_by] = by_ids[o[:created_by].to_i] }
+          Post.with_deleted.where(id: obj.map { |o| o[:post_id] }).each do |p|
+            posts_by_id[p.id] = p
+          end
+          obj.each do |o|
+            o[:created_by] = users_by_id[o[:created_by].to_i]
+            o[:post] = posts_by_id[o[:post_id].to_i]
+          end
         else
           obj[:created_by] = User.where(id: obj[:created_by]).first
+          obj[:post] = Post.with_deleted.where(id: obj[:post_id]).first
         end
 
         serialize_data(obj, ::StaffNoteSerializer)
@@ -161,7 +214,12 @@ after_initialize do
     created_by_user = User.find_by_id(self.created_by_id)
     warning_topic = Topic.find_by_id(self.topic_id)
     raw_note = I18n.t("staff_notes.official_warning", username: created_by_user.username, warning_link: "[#{warning_topic.title}](#{warning_topic.url})")
-    ::DiscourseStaffNotes.add_note(user, raw_note, Discourse::SYSTEM_USER_ID)
+    ::DiscourseStaffNotes.add_note(
+      user,
+      raw_note,
+      Discourse::SYSTEM_USER_ID,
+      topic_id: self.topic_id
+    )
   end
 
   add_model_callback(UserHistory, :after_commit, on: :create) do
@@ -169,7 +227,13 @@ after_initialize do
     target_user = User.find_by_id(self.target_user_id)
     created_by_user = User.find_by_id(self.acting_user_id)
     raw_note = I18n.t("staff_notes.user_suspended", username: created_by_user.username, suspended_till: I18n.l(target_user.suspended_till, format: :date_only), reason: self.details)
-    ::DiscourseStaffNotes.add_note(target_user, raw_note, Discourse::SYSTEM_USER_ID)
+    ::DiscourseStaffNotes.add_note(
+      target_user,
+      raw_note,
+      Discourse::SYSTEM_USER_ID,
+      post_id: self.post_id,
+      topic_id: self.topic_id
+    )
   end
 
 end

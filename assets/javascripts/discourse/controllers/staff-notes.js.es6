@@ -29,7 +29,15 @@ export default Ember.Controller.extend({
       const userId = parseInt(this.get('userId'));
 
       this.set('saving', true);
-      note.save({ raw: this.get('newNote'), user_id: userId }).then(() => {
+      let args = {
+        raw: this.get('newNote'),
+        user_id: userId
+      };
+      let postId = this.get('postId');
+      if (postId) {
+        args.post_id = parseInt(postId);
+      }
+      note.save(args).then(() => {
         this.set('newNote', '');
         this.get('model').pushObject(note);
         this._refreshCount();
@@ -37,7 +45,6 @@ export default Ember.Controller.extend({
     },
 
     removeNote(note) {
-
       bootbox.confirm(I18n.t("staff_notes.delete_confirm"), I18n.t("no_value"), I18n.t("yes_value"), result => {
         if (result) {
           note.destroyRecord().then(() => {

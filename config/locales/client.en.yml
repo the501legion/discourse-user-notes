@@ -6,3 +6,4 @@ en:
       remove: "Remove Staff Note"
       show: "Staff Notes ({{count}})"
       delete_confirm: "Are you sure you want to delete that staff note?"
+      show_post: "Show Post"

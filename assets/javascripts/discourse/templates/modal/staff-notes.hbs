@@ -13,11 +13,10 @@
 
           {{#if n.can_delete}}
             <span class='controls'>
-              {{d-button action="removeNote"
-                         actionParam=n
-                         icon="times"
-                         class="btn-small btn-danger"
-                         title="staff_notes.remove"}}
+              {{d-button action=(action "removeNote" n)
+                icon="times"
+                class="btn-small btn-danger"
+                title="staff_notes.remove"}}
             </span>
           {{/if}}
         </div>
@@ -25,6 +24,12 @@
         <div class='cooked'>
           {{cook-text n.raw}}
         </div>
+
+        {{#if n.post_id}}
+          <a class="btn btn-small" href={{n.post_url}}>
+            {{i18n "staff_notes.show_post"}}
+          </a>
+        {{/if}}
       </div>
 
       <div class='clearfix'></div>
