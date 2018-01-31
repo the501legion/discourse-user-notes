@@ -13,3 +13,4 @@ de:
       remove: "Team-Notiz entfernen"
       show: "Team-Notizen ({{count}})"
       delete_confirm: "Bist du sicher, dass du diese Team-Notiz entfernen möchtest?"
+      show_post: "Beitrag anzeigen"

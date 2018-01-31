@@ -12,4 +12,5 @@ nb_NO:
       attach: "Legg ved personalnotat"
       remove: "Fjern personalnotat"
       show: "Personalnotater ({{count}})"
-      delete_confirm: "Er du sikker på at du ønsker å slette dette personalnotatet?"
+      delete_confirm: "Er du sikker på at du ønsker å slette det personalnotatet?"
+      show_post: "Vis innlegg"

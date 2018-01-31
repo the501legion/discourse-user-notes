@@ -5,4 +5,10 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ur: {}
+ur:
+  site_settings:
+    staff_notes_enabled: "اسٹاف صارفین کو صارفین کیساتھ نوٹ منسلک کرنے کی اجازت دیں"
+    staff_notes_moderators_delete: "منتظمین کو اسٹاف نوٹس کو حذف کرنے کی اجازت دیں"
+  staff_notes:
+    official_warning: "@%{username} کی طرف سے ایک آفیشل انتباہ ملی -- %{warning_link}"
+    user_suspended: "@%{username}نے یہ اکاؤنٹ %{suspended_till}تک معطل کر دیا۔ وجہ: %{reason}  "

@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ur: {}
+ur:
+  js:
+    staff_notes:
+      title: "اسٹاف نوٹس"
+      attach: "اسٹاف نوٹس منسلک کریں"
+      remove: "اسٹاف نوٹس ہٹائیں"
+      show: "اسٹاف نوٹس ({{count}})"
+      delete_confirm: "کیا آپ واقعی یہ اسٹاف نوٹ حذف کرنا چاہتے ہیں؟"
+      show_post: "پوسٹ دکھائیں"
