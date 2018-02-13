@@ -236,4 +236,24 @@ after_initialize do
     )
   end
 
+  on(:user_silenced) do |details|
+    raw_note = I18n.t(
+      "staff_notes.user_silenced",
+      username: details[:user].username,
+      silenced_till: I18n.l(details[:silenced_till], format: :date_only),
+      reason: details[:reason]
+    )
+    note_args = {}
+    if post = Post.with_deleted.where(id: details[:post_id]).first
+      note_args = { post_id: post.id, topic_id: post.topic_id }
+    end
+
+    ::DiscourseStaffNotes.add_note(
+      details[:user],
+      raw_note,
+      Discourse::SYSTEM_USER_ID,
+      note_args
+    )
+  end
+
 end
