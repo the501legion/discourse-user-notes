@@ -57,7 +57,7 @@ export default {
         });
       });
 
-      api.attachWidgetAction('post-admin-menu', 'showStaffNotes', widgetShowStaffNotes);
+      api.attachWidgetAction('post', 'showStaffNotes', widgetShowStaffNotes);
 
       api.createWidget('staff-notes-icon', {
         tagName: 'span.staff-notes-icon',
