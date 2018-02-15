@@ -107,7 +107,14 @@ after_initialize do
     end
 
     def post_url
-      object[:post].try(:url)
+      url = object[:post].try(:url)
+
+      # In case the topic is deleted
+      if url == "/404"
+        url = "/t/#{object[:post].topic_id}/#{object[:post].post_number}"
+      end
+
+      url
     end
 
     def post_title
