@@ -8,4 +8,9 @@
 fr:
   js:
     staff_notes:
+      title: "Notes pour responsables"
+      attach: "Joindre un note pour responsables"
+      remove: "Retirer le note pour responsables"
+      show: "Notes pour responsables ({{count}})"
       delete_confirm: "Etes-vous sur de vouloir supprimer cette note ?"
+      show_post: "Afficher message"

@@ -12,3 +12,4 @@ ur:
   staff_notes:
     official_warning: "@%{username} کی طرف سے ایک آفیشل انتباہ ملی -- %{warning_link}"
     user_suspended: "@%{username}نے یہ اکاؤنٹ %{suspended_till}تک معطل کر دیا۔ وجہ: %{reason}  "
+    user_silenced: "@%{username}نے یہ اکاؤنٹ %{silenced_till} تک خاموش کر دیا۔ وجہ: %{reason}  "

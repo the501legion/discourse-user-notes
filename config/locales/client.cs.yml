@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-cs: {}
+cs:
+  js:
+    staff_notes:
+      title: "Redakční poznámky"
+      attach: "Připojit redakční poznámku"
+      remove: "Odstranit redakční poznámku"
+      show: "Redakční poznámky ({{count}})"
+      delete_confirm: "Opravdu chcete smazat tuto redakční poznámku?"
+      show_post: "Zobrazit příspěvek"
