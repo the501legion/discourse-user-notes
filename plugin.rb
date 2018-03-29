@@ -246,7 +246,7 @@ after_initialize do
   on(:user_silenced) do |details|
     raw_note = I18n.t(
       "staff_notes.user_silenced",
-      username: details[:user].username,
+      username: details[:silenced_by]&.username || '',
       silenced_till: I18n.l(details[:silenced_till], format: :date_only),
       reason: details[:reason]
     )
