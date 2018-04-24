@@ -13,3 +13,4 @@ es:
       remove: "Eliminar nota de staff"
       show: "({{count}}) notas de staff"
       delete_confirm: "¿Quieres borrar esa nota de staff?"
+      show_post: "Mostrar mensaje"

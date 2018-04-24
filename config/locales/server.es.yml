@@ -12,3 +12,4 @@ es:
   staff_notes:
     official_warning: "Recibió una advertencia oficial de @%{username} -- %{warning_link}"
     user_suspended: "@%{username} suspendió esta cuenta hasta %{suspended_till}. Razón: %{reason}"
+    user_silenced: "@%{username} ha silenciado esta cuenta hasta %{silenced_till}. Razón: %{reason}"
