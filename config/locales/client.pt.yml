@@ -13,3 +13,4 @@ pt:
       remove: "Remover Nota de Equipa"
       show: "Notas de Equipa ({{count}})"
       delete_confirm: "Tem a certeza de que quer remover esta nota de equipa?"
+      show_post: "Mostrar Publicação"

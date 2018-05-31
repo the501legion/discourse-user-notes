@@ -6,5 +6,10 @@
 # https://www.transifex.com/projects/p/discourse-org/
 
 nb_NO:
+  site_settings:
+    staff_notes_enabled: "Tillat staben å opprette notater på brukere"
+    staff_notes_moderators_delete: "Tillat moderatorer å slette notater fra staben"
   staff_notes:
+    official_warning: "Mottok en offisiell advarsel fra %{username} -- %{warning_link}"
     user_suspended: "@%{username} sperret denne kontoen til %{suspended_till}. Årsak: %{reason}"
+    user_silenced: "@%{username} dempet denne kontoen til %{silenced_till}. Årsak: %{reason}"

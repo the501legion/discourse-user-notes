@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ar: {}
+ar:
+  js:
+    staff_notes:
+      title: "ملاحظات طاقم العمل"
+      attach: "أرفق ملاحظة طاقم العمل"
+      remove: "احذف ملاحظة طاقم العمل"
+      show: "ملاحظات طاقم العمل ({{count}})"
+      delete_confirm: "هل أنت متأكد أنك تريد حذف هذه الملاحظة؟"
+      show_post: "اعرض منشور"
