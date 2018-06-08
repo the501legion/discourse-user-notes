@@ -172,28 +172,28 @@ after_initialize do
 
     protected
 
-      def create_json(obj)
-        # Avoid n+1
-        if obj.is_a?(Array)
-          users_by_id = {}
-          posts_by_id = {}
-          User.where(id: obj.map { |o| o[:created_by] }).each do |u|
-            users_by_id[u.id] = u
-          end
-          Post.with_deleted.where(id: obj.map { |o| o[:post_id] }).each do |p|
-            posts_by_id[p.id] = p
-          end
-          obj.each do |o|
-            o[:created_by] = users_by_id[o[:created_by].to_i]
-            o[:post] = posts_by_id[o[:post_id].to_i]
-          end
-        else
-          obj[:created_by] = User.where(id: obj[:created_by]).first
-          obj[:post] = Post.with_deleted.where(id: obj[:post_id]).first
+    def create_json(obj)
+      # Avoid n+1
+      if obj.is_a?(Array)
+        users_by_id = {}
+        posts_by_id = {}
+        User.where(id: obj.map { |o| o[:created_by] }).each do |u|
+          users_by_id[u.id] = u
         end
-
-        serialize_data(obj, ::StaffNoteSerializer)
+        Post.with_deleted.where(id: obj.map { |o| o[:post_id] }).each do |p|
+          posts_by_id[p.id] = p
+        end
+        obj.each do |o|
+          o[:created_by] = users_by_id[o[:created_by].to_i]
+          o[:post] = posts_by_id[o[:post_id].to_i]
+        end
+      else
+        obj[:created_by] = User.where(id: obj[:created_by]).first
+        obj[:post] = Post.with_deleted.where(id: obj[:post_id]).first
       end
+
+      serialize_data(obj, ::StaffNoteSerializer)
+    end
   end
 
   whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
