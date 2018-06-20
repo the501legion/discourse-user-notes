@@ -61,6 +61,21 @@ export default {
       const mobileView = api.container.lookup("site:main").mobileView;
       const loc = mobileView ? "before" : "after";
       api.decorateWidget(`poster-name:${loc}`, dec => {
+        if (dec.widget.settings.hideNotes) {
+          return;
+        }
+
+        const cfs = dec.attrs.userCustomFields || {};
+        if (cfs.staff_notes_count > 0) {
+          return dec.attach("staff-notes-icon");
+        }
+      });
+
+      api.decorateWidget(`post-avatar:after`, dec => {
+        if (!dec.widget.settings.showNotes) {
+          return;
+        }
+
         const cfs = dec.attrs.userCustomFields || {};
         if (cfs.staff_notes_count > 0) {
           return dec.attach("staff-notes-icon");
