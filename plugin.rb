@@ -263,4 +263,47 @@ after_initialize do
     )
   end
 
+  if respond_to? :add_report
+    add_report('recent_staff_notes') do |report|
+      report.modes = [:table]
+
+      report.data = []
+
+      # TODO
+      # plugin store row doesn’t have created_at
+      # this could be improved by querying on the text field
+      report.dates_filtering = false
+
+      report.labels = [
+        { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.recent_staff_notes.labels.user") },
+        { type: :text, properties: ["note"], title: I18n.t("reports.recent_staff_notes.labels.note") },
+        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.recent_staff_notes.labels.moderator")}
+      ]
+
+      values = PluginStoreRow.where(plugin_name: 'staff_notes')
+                             .order(id: :desc)
+                             .limit(report.limit || 10)
+                             .pluck(:value)
+
+      values.each do |value|
+        data = {}
+        note = JSON.parse(value)[0]
+        created_at = Time.parse(note['created_at'])
+        user = User.find_by(id: note['user_id'])
+        moderator = User.find_by(id: note['created_by'])
+
+        if user && moderator
+          data[:created_at] = created_at
+          data[:user_id] = user.id
+          data[:user_url] = "/admin/users/#{user.id}/#{user.username_lower}"
+          data[:username] = user.username
+          data[:moderator_id] = moderator.id
+          data[:moderator_username] = moderator.username
+          data[:moderator_url] = "/admin/users/#{moderator.id}/#{moderator.username_lower}"
+          data[:note] = note['raw']
+          report.data << data
+        end
+      end
+    end
+  end
 end

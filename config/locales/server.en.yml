@@ -7,3 +7,11 @@ en:
     official_warning: "Received an official warning from @%{username} -- %{warning_link}"
     user_suspended: "@%{username} suspended this account until %{suspended_till}. Reason: %{reason}"
     user_silenced: "@%{username} silenced this account until %{silenced_till}. Reason: %{reason}"
+
+  reports:
+    recent_staff_notes:
+      title: "Recent staff notes"
+      labels:
+        user: User
+        note: Note
+        moderator: Moderator
