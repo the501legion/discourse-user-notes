@@ -277,13 +277,14 @@ after_initialize do
       report.labels = [
         { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.recent_staff_notes.labels.user") },
         { type: :text, properties: ["note"], title: I18n.t("reports.recent_staff_notes.labels.note") },
-        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.recent_staff_notes.labels.moderator")}
+        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.recent_staff_notes.labels.moderator") }
       ]
 
-      values = PluginStoreRow.where(plugin_name: 'staff_notes')
-                             .order(id: :desc)
-                             .limit(report.limit || 10)
-                             .pluck(:value)
+      values = PluginStoreRow
+        .where(plugin_name: 'staff_notes')
+        .order(id: :desc)
+        .limit(report.limit || 10)
+        .pluck(:value)
 
       values.each do |value|
         data = {}
