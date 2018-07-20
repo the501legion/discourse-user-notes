@@ -46,6 +46,20 @@
   cursor: pointer;
 }
 
-.admin-report.recent-staff-notes {
+.admin-report.staff-notes {
   grid-column: span 12;
+
+  .admin-report-table {
+    table-layout: auto;
+
+    tbody tr td,
+    thead tr th {
+      text-align: left;
+    }
+
+    thead tr th.note,
+    tbody tr td.note {
+      width: 60%;
+    }
+  }
 }

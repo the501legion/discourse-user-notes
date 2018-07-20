@@ -264,27 +264,26 @@ after_initialize do
   end
 
   if respond_to? :add_report
-    add_report('recent_staff_notes') do |report|
+    add_report('staff_notes') do |report|
       report.modes = [:table]
 
       report.data = []
 
-      # TODO
-      # plugin store row doesn’t have created_at
-      # this could be improved by querying on the text field
-      report.dates_filtering = false
-
       report.labels = [
-        { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.recent_staff_notes.labels.user") },
-        { type: :text, properties: ["note"], title: I18n.t("reports.recent_staff_notes.labels.note") },
-        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.recent_staff_notes.labels.moderator") }
+        { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.staff_notes.labels.user") },
+        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.staff_notes.labels.moderator") },
+        { type: :text, properties: ["note"], title: I18n.t("reports.staff_notes.labels.note") }
       ]
 
-      values = PluginStoreRow
-        .where(plugin_name: 'staff_notes')
-        .order(id: :desc)
-        .limit(report.limit || 10)
-        .pluck(:value)
+      values = []
+      report.timeout = wrap_slow_query do
+        values = PluginStoreRow
+          .where(plugin_name: 'staff_notes')
+          .where("value::json->0->>'created_at'>?", report.start_date)
+          .where("value::json->0->>'created_at'<?", report.end_date)
+          .order(id: :desc)
+          .pluck(:value)
+      end
 
       values.each do |value|
         data = {}
