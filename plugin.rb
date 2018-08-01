@@ -272,17 +272,22 @@ after_initialize do
       report.labels = [
         { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.staff_notes.labels.user") },
         { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.staff_notes.labels.moderator") },
-        { type: :text, properties: ["note"], title: I18n.t("reports.staff_notes.labels.note") }
+        { type: :text, property: :note, title: I18n.t("reports.staff_notes.labels.note") }
       ]
 
       values = []
-      report.timeout = wrap_slow_query do
-        values = PluginStoreRow
-          .where(plugin_name: 'staff_notes')
+
+      timeout = wrap_slow_query do
+        values = PluginStoreRow.where(plugin_name: 'staff_notes')
           .where("value::json->0->>'created_at'>?", report.start_date)
           .where("value::json->0->>'created_at'<?", report.end_date)
-          .order(id: :desc)
           .pluck(:value)
+      end
+
+      if Object.const_defined?("Report::SCHEMA_VERSION")
+        report.error = timeout
+      else
+        report.timeout = timeout
       end
 
       values.each do |value|
