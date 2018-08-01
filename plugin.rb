@@ -277,18 +277,10 @@ after_initialize do
 
       values = []
 
-      timeout = wrap_slow_query do
-        values = PluginStoreRow.where(plugin_name: 'staff_notes')
-          .where("value::json->0->>'created_at'>?", report.start_date)
-          .where("value::json->0->>'created_at'<?", report.end_date)
-          .pluck(:value)
-      end
-
-      if Object.const_defined?("Report::SCHEMA_VERSION")
-        report.error = timeout
-      else
-        report.timeout = timeout
-      end
+      values = PluginStoreRow.where(plugin_name: 'staff_notes')
+        .where("value::json->0->>'created_at'>?", report.start_date)
+        .where("value::json->0->>'created_at'<?", report.end_date)
+        .pluck(:value)
 
       values.each do |value|
         data = {}
