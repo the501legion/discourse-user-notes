@@ -270,8 +270,24 @@ after_initialize do
       report.data = []
 
       report.labels = [
-        { type: :link, properties: ["username", "user_url"], title: I18n.t("reports.staff_notes.labels.user") },
-        { type: :link, properties: ["moderator_username", "moderator_url"], title: I18n.t("reports.staff_notes.labels.moderator") },
+        {
+          type: :user,
+          properties: {
+            username: :username,
+            id: :user_id,
+            avatar: :user_avatar_template,
+          },
+          title: I18n.t("reports.staff_notes.labels.user")
+        },
+        {
+          type: :user,
+          properties: {
+            username: :moderator_username,
+            id: :moderator_id,
+            avatar: :moderator_avatar_template,
+          },
+          title: I18n.t("reports.staff_notes.labels.moderator")
+        },
         { type: :text, property: :note, title: I18n.t("reports.staff_notes.labels.note") }
       ]
 
@@ -292,11 +308,11 @@ after_initialize do
         if user && moderator
           data[:created_at] = created_at
           data[:user_id] = user.id
-          data[:user_url] = "/admin/users/#{user.id}/#{user.username_lower}"
-          data[:username] = user.username
+          data[:username] = user.username_lower
+          data[:user_avatar_template] = User.avatar_template(user.username_lower, user.uploaded_avatar_id)
           data[:moderator_id] = moderator.id
-          data[:moderator_username] = moderator.username
-          data[:moderator_url] = "/admin/users/#{moderator.id}/#{moderator.username_lower}"
+          data[:moderator_username] = moderator.username_lower
+          data[:moderator_avatar_template] = User.avatar_template(moderator.username_lower, moderator.uploaded_avatar_id)
           data[:note] = note['raw']
           report.data << data
         end
