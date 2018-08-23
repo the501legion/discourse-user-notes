@@ -5,4 +5,18 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pt_BR: {}
+pt_BR:
+  site_settings:
+    staff_notes_enabled: "Permitir que os usuários da equipe anexem notas aos usuários"
+    staff_notes_moderators_delete: "Permitir que moderadores excluam as anotações da equipe"
+  staff_notes:
+    official_warning: "Recebeu um aviso oficial de @%{username} -- %{warning_link}"
+    user_suspended: "@%{username}suspendeu esta conta até%{suspended_till}. Razão: %{reason}"
+    user_silenced: "@%{username} silenciou essa conta até %{silenced_till}. Razão: %{reason}"
+  reports:
+    staff_notes:
+      title: "Notas de pessoal"
+      labels:
+        user: usuário
+        note: Nota
+        moderator: moderador

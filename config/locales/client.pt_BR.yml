@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-pt_BR: {}
+pt_BR:
+  js:
+    staff_notes:
+      title: "Anotações da Equipe"
+      attach: "Anexar anotação da equipe"
+      remove: "Remover nota da equipe"
+      show: "Anotações da Equipe ({{count}})"
+      delete_confirm: "Tem certeza de que deseja apagar essa nota da equipe?"
+      show_post: "Mostrar publicação"

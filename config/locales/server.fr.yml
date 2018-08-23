@@ -13,3 +13,10 @@ fr:
     official_warning: "A reçu un avertissement officiel de @%{username} -- %{warning_link}"
     user_suspended: "@%{username} a suspendu ce compte jusqu'à %{suspended_till}. Raison : %{reason}"
     user_silenced: "@%{username} a mis sous silence ce compte jusqu'à %{silenced_till}. Raison : %{reason}"
+  reports:
+    staff_notes:
+      title: "Notes pour responsables"
+      labels:
+        user: Utilisateur
+        note: Note
+        moderator: Modérateur

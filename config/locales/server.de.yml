@@ -13,3 +13,10 @@ de:
     official_warning: "Hat eine offizielle Warnung erhalten von @%{username} -- %{warning_link}"
     user_suspended: "@%{username} hat dieses Konto gesperrt bis %{suspended_till}. Grund: %{reason}"
     user_silenced: "@%{username} hat dieses Konto stummgeschaltet bis %{silenced_till}. Grund: %{reason}"
+  reports:
+    staff_notes:
+      title: "Team-Notizen"
+      labels:
+        user: Benutzer
+        note: Notiz
+        moderator: Moderator

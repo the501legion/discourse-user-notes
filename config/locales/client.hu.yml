@@ -1,0 +1,16 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+hu:
+  js:
+    staff_notes:
+      title: "Személyzeti megjegyzések"
+      attach: "Személyzeti megjegyzés csatolása"
+      remove: "Személyzeti megjegyzés eltávolítása"
+      show: "Személyzeti megjegyzések ({{count}})"
+      delete_confirm: "Biztosan törölni szeretnéd a személyzeti megjegyzést?"
+      show_post: "Bejegyzés mutatása"
