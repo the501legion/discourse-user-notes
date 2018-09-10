@@ -12,5 +12,5 @@ he:
       attach: "צירוף הערת צוות"
       remove: "הסרת הערת צוות"
       show: "הערות צוות ({{count}})"
-      delete_confirm: "למחוק את הערת הצוות הזו?"
+      delete_confirm: "להסיר את הערת הצוות הזו?"
       show_post: "הצגת רשומה"
