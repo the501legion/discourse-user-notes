@@ -1,14 +1,14 @@
-import computed from 'ember-addons/ember-computed-decorators';
+import computed from "ember-addons/ember-computed-decorators";
 
 export default Ember.Component.extend({
-  tagName: '',
+  tagName: "",
 
-  @computed('count')
+  @computed("count")
   showCount: count => count && count > 0,
 
   actions: {
     show() {
-      this.sendAction('show');
+      this.sendAction("show");
     }
   }
 });
