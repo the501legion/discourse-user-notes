@@ -5,9 +5,7 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ko:
-  reports:
+lt:
+  js:
     staff_notes:
-      labels:
-        user: 사용자
-        note: 노트
+      title: "Komandos užrašai"

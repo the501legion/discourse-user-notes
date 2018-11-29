@@ -5,4 +5,18 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-nl: {}
+nl:
+  site_settings:
+    staff_notes_enabled: "Sta personeel toe om beschrijven bij gebruikers toe te voegen"
+    staff_notes_moderators_delete: "Toestaan dat moderators personeel notities mogen verwijderen"
+  staff_notes:
+    official_warning: "Heeft een officiële waarschuwing gekregen van @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} heeft dit account geschorst tot %{suspended_till}. Reden: %{reason}"
+    user_silenced: "@%{username} heeft dit account het zwijgen opgelegd tot %{silenced_till}. Reden: %{reason}"
+  reports:
+    staff_notes:
+      title: "Personeel notities"
+      labels:
+        user: Gebruiker
+        note: Notitie
+        moderator: Moderator
