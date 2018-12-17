@@ -8,6 +8,8 @@ enabled_site_setting :staff_notes_enabled
 
 register_asset 'stylesheets/staff_notes.scss'
 
+register_svg_icon "sticky-note" if respond_to?(:register_svg_icon)
+
 STAFF_NOTE_COUNT_FIELD = "staff_notes_count"
 
 after_initialize do
