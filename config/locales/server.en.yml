@@ -11,6 +11,7 @@ en:
   reports:
     staff_notes:
       title: "Staff notes"
+      description: "List most recent staff notes."
       labels:
         user: User
         note: Note
