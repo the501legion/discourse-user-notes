@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
         .save(args)
         .then(() => {
           this.set("newNote", "");
-          this.get("model").pushObject(note);
+          this.get("model").insertAt(0, note);
           this._refreshCount();
         })
         .catch(popupAjaxError)

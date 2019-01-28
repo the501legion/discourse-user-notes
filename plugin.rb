@@ -140,7 +140,7 @@ after_initialize do
       notes = ::DiscourseStaffNotes.notes_for(params[:user_id])
       render json: {
         extras: { username: user.username },
-        staff_notes: create_json(notes)
+        staff_notes: create_json(notes.reverse)
       }
     end
 
