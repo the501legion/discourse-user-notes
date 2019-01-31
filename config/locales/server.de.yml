@@ -16,6 +16,7 @@ de:
   reports:
     staff_notes:
       title: "Team-Notizen"
+      description: "Liste der neuesten Team-Notizen"
       labels:
         user: Benutzer
         note: Notiz

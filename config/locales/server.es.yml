@@ -16,7 +16,8 @@ es:
   reports:
     staff_notes:
       title: "Notas de staff"
+      description: "Lista de las notas de staff más recientes."
       labels:
-        user: Usuari
+        user: Usuario
         note: Nota
         moderator: Moderador

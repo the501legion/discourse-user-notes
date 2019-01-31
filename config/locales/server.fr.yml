@@ -16,6 +16,7 @@ fr:
   reports:
     staff_notes:
       title: "Notes pour responsables"
+      description: "List des notes de responsables les plus récents."
       labels:
         user: Utilisateur
         note: Note

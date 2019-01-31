@@ -16,6 +16,7 @@ nl:
   reports:
     staff_notes:
       title: "Personeel notities"
+      description: "Geef de meeste recente personeel notities weer."
       labels:
         user: Gebruiker
         note: Notitie

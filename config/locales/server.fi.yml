@@ -12,3 +12,12 @@ fi:
   staff_notes:
     official_warning: "%{username} antoi virallisen varoituksen - %{warning_link}"
     user_suspended: "@%{username} hyllytti käyttäjätilin %{suspended_till} asti. Syy: %{reason}"
+    user_silenced: "@%{username} hiljeni käyttäjätilin %{silenced_till} asti. Syy: %{reason}"
+  reports:
+    staff_notes:
+      title: "Henkilökunnan huomiot"
+      description: "Luettelo viimeisimmistä henkilökunnan huomioista."
+      labels:
+        user: Käyttäjä
+        note: Huomi
+        moderator: Valvoja

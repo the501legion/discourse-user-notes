@@ -10,7 +10,7 @@ zh_CN:
     staff_notes_enabled: "允许管理人员将注释附加到用户"
     staff_notes_moderators_delete: "允许版主删除管理人员注释"
   staff_notes:
-    official_warning: "收到来自@%{username}的正式警告 - %{warning_link}"
+    official_warning: "收到来自 @%{username}的正式警告 - %{warning_link}"
     user_suspended: "@%{username}暂停此帐户，直到%{suspended_till}。 原因：%{reason}"
     user_silenced: "@%{username}将此帐户禁言，直到%{silenced_till}。 原因：%{reason}"
   reports:
