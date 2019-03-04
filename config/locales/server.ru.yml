@@ -6,8 +6,17 @@
 # https://www.transifex.com/projects/p/discourse-org/
 
 ru:
+  site_settings:
+    staff_notes_enabled: "Разрешить персоналу прикреплять заметки к пользователям"
+    staff_notes_moderators_delete: "Разрешить модераторам удалять заметки сотрудников"
+  staff_notes:
+    official_warning: "Получено официальное предупреждение от @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} приостановил этот аккаунт до %{suspended_till}. Причина: %{reason}"
+    user_silenced: "@%{username} заглушил этот аккаунт  %{silenced_till}. Причина: %{reason}"
   reports:
     staff_notes:
+      title: "Заметки персонала"
+      description: "Список последних заметок персонала."
       labels:
         user: Пользователь
         note: Заметка

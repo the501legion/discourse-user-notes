@@ -5,4 +5,8 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-sl: {}
+sl:
+  staff_notes:
+    official_warning: "Prejel uradno opozorilo od @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} supendiral ta račun do %{suspended_till}. Razlog: %{reason}"
+    user_silenced: "@%{username} utišal ta račun do %{silenced_till}. Razlog: %{reason}"

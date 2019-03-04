@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-sl: {}
+sl:
+  js:
+    staff_notes:
+      title: "Opomba osebja"
+      attach: "Pripni opombo osebja"
+      remove: "Odstrani opombo osebja"
+      show: "Opomba osebja ({{count}})"
+      delete_confirm: "Ali ste prepričani da hočete odstraniti opombo osebja?"
+      show_post: "Prikaži prispevek"
