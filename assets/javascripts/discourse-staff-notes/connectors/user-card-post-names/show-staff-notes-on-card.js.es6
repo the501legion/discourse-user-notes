@@ -1,3 +1,5 @@
+import { showStaffNotes } from "discourse/plugins/discourse-staff-notes/discourse-staff-notes/lib/staff-notes";
+import { getOwner } from "discourse-common/lib/get-owner";
 import { emojiUrlFor } from "discourse/lib/text";
 
 export default {
@@ -17,5 +19,16 @@ export default {
     component.set("emojiUrl", emojiUrlFor("pencil"));
     component.set("user", user);
     component.set("staffNotesTitle", I18n.t("staff_notes.show", { count }));
+  },
+
+  actions: {
+    showStaffNotes() {
+      this.parentView.parentView._close();
+      const store = getOwner(this).lookup("store:main");
+      const user = this.get("args.user");
+      showStaffNotes(store, user.get("id"), count =>
+        this.set("staffNotesCount", count)
+      );
+    }
   }
 };
