@@ -16,6 +16,7 @@ zh_CN:
   reports:
     staff_notes:
       title: "管理人员注释"
+      description: "近期的员工笔记列表。"
       labels:
         user: 用户
         note: 注释

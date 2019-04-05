@@ -7,16 +7,17 @@
 
 pt_BR:
   site_settings:
-    staff_notes_enabled: "Permitir que os usuários da equipe anexem notas aos usuários"
-    staff_notes_moderators_delete: "Permitir que moderadores excluam as anotações da equipe"
+    staff_notes_enabled: "Permitir que usuários da staff anexem notas aos usuários"
+    staff_notes_moderators_delete: "Permitir que moderadores excluam as anotações da staff"
   staff_notes:
-    official_warning: "Recebeu um aviso oficial de @%{username} -- %{warning_link}"
-    user_suspended: "@%{username}suspendeu esta conta até%{suspended_till}. Razão: %{reason}"
-    user_silenced: "@%{username} silenciou essa conta até %{silenced_till}. Razão: %{reason}"
+    official_warning: "Recebido um aviso oficial de @%{username} -- %{warning_link}"
+    user_suspended: "@%{username} suspendeu esta conta até %{suspended_till}. Motivo: %{reason}"
+    user_silenced: "@%{username} silenciou esta conta até %{silenced_till}. Motivo: %{reason}"
   reports:
     staff_notes:
-      title: "Notas de pessoal"
+      title: "Anotações da Staff"
+      description: "Listar anotações da staff mais recentes."
       labels:
-        user: usuário
-        note: Nota
-        moderator: moderador
+        user: Usuário
+        note: Anotação
+        moderator: Moderador

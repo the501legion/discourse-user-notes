@@ -1,0 +1,23 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+hy:
+  site_settings:
+    staff_notes_enabled: "Թույլատրել անձնակազմի անդամներին կցել նշումներ օգտատերերին"
+    staff_notes_moderators_delete: "Թույլատրել մոդերատորներին ջնջել անձնակազմի նշումները"
+  staff_notes:
+    official_warning: "Ստացել է պաշտոնական զգուշացում @%{username} -ից -- %{warning_link}"
+    user_suspended: "@%{username} -ը սառեցրել է հաշիվը մինչև %{suspended_till}: Պատճառը՝ %{reason}"
+    user_silenced: "@%{username} -ը լռեցրել է այս հաշիվը մինչև %{silenced_till}: Պատճառը՝ %{reason}"
+  reports:
+    staff_notes:
+      title: "Անձնակազմի նշումներ"
+      description: "Անձնակազմի ամենավերջին նշումների ցանկ:"
+      labels:
+        user: Օգտատեր
+        note: Նշում
+        moderator: Մոդերատոր
