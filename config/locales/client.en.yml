@@ -2,7 +2,7 @@ en:
   js:
     staff_notes:
       title: "Staff Notes"
-      attach: "Attach Staff Note"
+      attach: "Add User Note"
       remove: "Remove Staff Note"
       show: "Staff Notes ({{count}})"
       delete_confirm: "Are you sure you want to delete that staff note?"
