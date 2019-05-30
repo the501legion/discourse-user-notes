@@ -9,7 +9,6 @@ sw:
   js:
     staff_notes:
       title: "Madokezo ya Wasaidizi"
-      attach: "Ambatanisha Noti za Msaidizi"
       remove: "Ondoa Dokezo la Wasaidizi"
       show: "Madokezo ya Wasaidizi ({{count}})"
       delete_confirm: "Je una uhakika unataka kufuta dokezo la wasaidizi?"

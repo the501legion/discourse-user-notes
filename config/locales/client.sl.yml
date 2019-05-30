@@ -9,7 +9,7 @@ sl:
   js:
     staff_notes:
       title: "Opomba osebja"
-      attach: "Pripni opombo osebja"
+      attach: "Dodaj opombo osebja"
       remove: "Odstrani opombo osebja"
       show: "Opomba osebja ({{count}})"
       delete_confirm: "Ali ste prepričani da hočete odstraniti opombo osebja?"

@@ -12,3 +12,8 @@ ja:
   staff_notes:
     official_warning: "@%{username} -- %{warning_link} から、公式な警告を受けました"
     user_suspended: "@%{username} \nこのアカウントは、%{suspended_till}まで無効化されました。\n理由:%{reason}"
+  reports:
+    staff_notes:
+      labels:
+        user: ユーザー
+        moderator: モデレータ

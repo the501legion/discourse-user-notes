@@ -9,7 +9,6 @@ pl_PL:
   js:
     staff_notes:
       title: "Notatki służbowe"
-      attach: "Dołącz notatkę dla pracowników"
       remove: "Usuń notatkę dla pracowników"
       show: "Notatki służbowe  ({{count}})"
       delete_confirm: "Czy na pewno chcesz usunąć tę notatkę pracowników?"

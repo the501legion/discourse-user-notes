@@ -9,3 +9,8 @@ sk:
   site_settings:
     staff_notes_enabled: "Umožniť personálu napísať poznámku k používateľom"
     staff_notes_moderators_delete: "Umožniť moderátorom mazať poznámky personálu"
+  reports:
+    staff_notes:
+      labels:
+        user: Používateľ
+        moderator: Moderátor

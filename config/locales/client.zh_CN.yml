@@ -9,7 +9,7 @@ zh_CN:
   js:
     staff_notes:
       title: "管理人员注释"
-      attach: "附上管理人员注释"
+      attach: "添加用户注释"
       remove: "移除管理人员注释"
       show: "管理人员注释{{count}}"
       delete_confirm: "确定要删除管理人员注释吗？"

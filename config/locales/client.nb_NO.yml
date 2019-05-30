@@ -9,7 +9,6 @@ nb_NO:
   js:
     staff_notes:
       title: "Parsonalnotater"
-      attach: "Legg ved personalnotat"
       remove: "Fjern personalnotat"
       show: "Personalnotater ({{count}})"
       delete_confirm: "Er du sikker på at du ønsker å slette det personalnotatet?"

@@ -9,3 +9,8 @@ ro:
   staff_notes:
     official_warning: "A primit un avertisment oficial de la %{username} -- %{warning_link}"
     user_suspended: "%{username} a suspendat acest cont până pe %{suspended_till}. Motiv: %{reason}"
+  reports:
+    staff_notes:
+      labels:
+        user: Utilizatori
+        moderator: Moderator

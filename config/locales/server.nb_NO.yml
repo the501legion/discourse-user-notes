@@ -13,3 +13,8 @@ nb_NO:
     official_warning: "Mottok en offisiell advarsel fra %{username} -- %{warning_link}"
     user_suspended: "@%{username} sperret denne kontoen til %{suspended_till}. Årsak: %{reason}"
     user_silenced: "@%{username} dempet denne kontoen til %{silenced_till}. Årsak: %{reason}"
+  reports:
+    staff_notes:
+      labels:
+        user: Bruker
+        moderator: Moderator

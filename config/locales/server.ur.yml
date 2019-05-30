@@ -13,3 +13,11 @@ ur:
     official_warning: "@%{username} کی طرف سے ایک آفیشل انتباہ ملی -- %{warning_link}"
     user_suspended: "@%{username}نے یہ اکاؤنٹ %{suspended_till}تک معطل کر دیا۔ وجہ: %{reason}  "
     user_silenced: "@%{username}نے یہ اکاؤنٹ %{silenced_till} تک خاموش کر دیا۔ وجہ: %{reason}  "
+  reports:
+    staff_notes:
+      title: "اسٹاف نوٹس"
+      description: "حالیہ ترین اسٹاف نوٹس کو فہرست کریں۔"
+      labels:
+        user: صارف
+        note: نوٹ
+        moderator: ماڈریٹر

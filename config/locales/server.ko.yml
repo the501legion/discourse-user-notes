@@ -11,3 +11,4 @@ ko:
       labels:
         user: 사용자
         note: 노트
+        moderator: 운영자

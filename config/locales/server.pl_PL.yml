@@ -12,3 +12,8 @@ pl_PL:
   staff_notes:
     official_warning: "Otrzymano oficjalne ostrzeżenie od @%{username} -- %{warning_link}"
     user_suspended: "@%{username} zawiesiłeś to konto do %{suspended_till}. Powód: %{reason}"
+  reports:
+    staff_notes:
+      labels:
+        user: Użytkownik
+        moderator: Moderatorzy

@@ -9,7 +9,6 @@ cs:
   js:
     staff_notes:
       title: "Redakční poznámky"
-      attach: "Připojit redakční poznámku"
       remove: "Odstranit redakční poznámku"
       show: "Redakční poznámky ({{count}})"
       delete_confirm: "Opravdu chcete smazat tuto redakční poznámku?"

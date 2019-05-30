@@ -13,3 +13,8 @@ cs:
     official_warning: "Obdrženo oficiální varování od @%{username} -- %{warning_link}"
     user_suspended: "@%{username} zakázal tento účet do %{suspended_till}. Důvod: %{reason}"
     user_silenced: "@%{username} ulmčel tento účet do %{silenced_till}. Důvod: %{reason}"
+  reports:
+    staff_notes:
+      labels:
+        user: Uživatel
+        moderator: Moderátor

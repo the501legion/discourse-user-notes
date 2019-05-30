@@ -9,7 +9,6 @@ ro:
   js:
     staff_notes:
       title: "Note membrii echipă"
-      attach: "Atașează notă de membru de echipă"
       remove: "Șterge nota de membru de echipă"
       show: "Note de personal  ({{count}})"
       delete_confirm: "Ești sigur că vrei să ștergi această notă de membru de echipă?"
