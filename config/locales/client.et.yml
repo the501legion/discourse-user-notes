@@ -8,4 +8,7 @@
 et:
   js:
     staff_notes:
+      title: "Personali märkmed"
+      attach: "Lisa kasutaja märkus"
+      remove: "Eemalda personali märkus"
       show_post: "Näita postitust"
