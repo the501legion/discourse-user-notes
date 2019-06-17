@@ -9,6 +9,7 @@ it:
   js:
     staff_notes:
       title: "Note Staff"
+      attach: "Aggiungi nota utente"
       remove: "Rimuovi Nota Staff"
       show: "Note Staff ({{count}})"
       delete_confirm: "Sei sicuro di voler eliminare questa nota dello staff?"

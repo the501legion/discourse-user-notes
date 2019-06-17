@@ -8,6 +8,8 @@
 ar:
   reports:
     staff_notes:
+      description: "ملاحظات المشرفين الأخيرة"
       labels:
         user: مستخدم
+        note: ملاحظة
         moderator: مشرف

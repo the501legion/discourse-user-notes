@@ -12,5 +12,5 @@ fr:
       attach: "Ajouter note sur utilisateur"
       remove: "Retirer le note pour responsables"
       show: "Notes pour responsables ({{count}})"
-      delete_confirm: "Etes-vous sur de vouloir supprimer cette note ?"
+      delete_confirm: "Etes-vous sur de vouloir supprimer cette note ?"
       show_post: "Afficher message"
