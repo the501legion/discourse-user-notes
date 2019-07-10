@@ -1,9 +1,9 @@
 en:
   js:
     staff_notes:
-      title: "Staff Notes"
+      title: "User Notes"
       attach: "Add User Note"
-      remove: "Remove Staff Note"
-      show: "Staff Notes ({{count}})"
-      delete_confirm: "Are you sure you want to delete that staff note?"
+      remove: "Remove User Note"
+      show: "User Notes ({{count}})"
+      delete_confirm: "Are you sure you want to delete that user note?"
       show_post: "Show Post"

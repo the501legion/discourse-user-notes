@@ -1,12 +1,19 @@
-.modal-body.staff-notes-modal {
-  height: 300px;
+#discourse-modal {
+  .modal-body.staff-notes-modal {
+    max-height: 80vh !important;
+  }
+}
 
+.modal-body.staff-notes-modal {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
   textarea {
     width: 98%;
+    @include breakpoint(mobile, min-width) {
+      min-width: 400px;
+    }
   }
 
   .posted-by {
@@ -30,7 +37,15 @@
   }
 
   .staff-note {
-    margin-bottom: 1em;
+    border-top: 1px solid $primary-low;
+    padding-top: 1em;
+
+    &:first-of-type {
+      margin-top: 1em;
+    }
+    @include breakpoint(mobile, min-width) {
+      max-width: 530px;
+    }
   }
 
   .controls {

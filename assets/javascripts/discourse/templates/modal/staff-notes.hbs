@@ -1,7 +1,6 @@
 {{#d-modal-body class="staff-notes-modal"}}
   {{textarea value=newNote}}
   {{d-button action="attachNote" label="staff_notes.attach" class="btn-primary" disabled=attachDisabled}}
-  <hr/>
 
   {{#each model as |n|}}
     <div class='staff-note'>
