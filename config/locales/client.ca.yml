@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-ca: {}
+ca:
+  js:
+    staff_notes:
+      title: "Notes d'usuari"
+      attach: "Afegeix una nota d&#39;usuari"
+      remove: "Suprimeix la nota d’usuari"
+      show: "Notes d'usuari ({{count}})"
+      delete_confirm: "Esteu segur que voleu suprimir aquesta nota d’usuari?"
+      show_post: "Mostra la publicació"

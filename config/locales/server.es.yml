@@ -8,15 +8,12 @@
 es:
   site_settings:
     staff_notes_enabled: "Permitir a los usuarios del staff adjuntar notas a los usuarios"
-    staff_notes_moderators_delete: "Permitir a los moderadores borrar notas del staff"
   staff_notes:
     official_warning: "Recibiste una advertencia oficial de @%{username} -- %{warning_link}"
     user_suspended: "@%{username} suspendió esta cuenta hasta %{suspended_till}. Razón: %{reason}"
     user_silenced: "@%{username} silenció esta cuenta hasta %{silenced_till}. Razón: %{reason}"
   reports:
     staff_notes:
-      title: "Notas del staff"
-      description: "Lista de las notas del staff más recientes."
       labels:
         user: Usuario
         note: Nota

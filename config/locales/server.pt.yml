@@ -8,7 +8,6 @@
 pt:
   site_settings:
     staff_notes_enabled: "Permitir que os utilizadores da equipa anexem notas aos utilizadores"
-    staff_notes_moderators_delete: "Permitir que os moderadores removam as notas de equipa"
   staff_notes:
     official_warning: "Recebeu um aviso oficial de @%{username} -- %{warning_link}"
   reports:

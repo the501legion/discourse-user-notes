@@ -8,9 +8,9 @@
 es:
   js:
     staff_notes:
-      title: "Notas del staff"
+      title: "Notas del Usuario"
       attach: "Añadir nota de usuario"
-      remove: "Eliminar nota del staff"
-      show: "({{count}}) notas del staff"
-      delete_confirm: "¿Estás seguro de que deseas eliminar esa nota de staff?"
+      remove: "Eliminar Nota de Usuario"
+      show: "Notas de Usuario ({{count}})"
+      delete_confirm: "¿Estás seguro de eliminar esta nota de usuario?"
       show_post: "Mostrar mensaje"

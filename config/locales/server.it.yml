@@ -8,15 +8,12 @@
 it:
   site_settings:
     staff_notes_enabled: "Abilitare gli utenti dello staff ad allegare note agli utenti"
-    staff_notes_moderators_delete: "Permetti ai moderatori di eliminare le note dello staff"
   staff_notes:
     official_warning: "Ha ricevuto un richiamo ufficiale da @%{username} -- %{warning_link}"
     user_suspended: "@%{username} ha sospeso questo account fino a %{suspended_till}. Motivazione: %{reason}"
-    user_silenced: "@%{username} ha silenziato questo account  fino a %{silenced_till}. Motivazione: %{reason}"
+    user_silenced: "@%{username} ha silenziato questo account fino a %{silenced_till}. Motivazione: %{reason}"
   reports:
     staff_notes:
-      title: "Note Staff"
-      description: "Elenca le Note dello Staff più recenti"
       labels:
         user: Utente
         note: Nota

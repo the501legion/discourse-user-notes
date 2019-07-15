@@ -8,9 +8,5 @@
 nl:
   js:
     staff_notes:
-      title: "Stafnotities"
       attach: "Gebruikersnotitie toevoegen"
-      remove: "Stafnotitie verwijderen"
-      show: "Stafnotities ({{count}})"
-      delete_confirm: "Weet u zeker dat u die stafnotitie wilt verwijderen?"
       show_post: "Bericht tonen"

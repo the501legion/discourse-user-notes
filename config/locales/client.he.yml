@@ -8,9 +8,9 @@
 he:
   js:
     staff_notes:
-      title: "הערות הצוות"
+      title: "הערות משתמש"
       attach: "הוספת הערת משתמש"
-      remove: "הסרת הערת צוות"
-      show: "הערות צוות ({{count}})"
-      delete_confirm: "להסיר את הערת הצוות הזו?"
+      remove: "הסרת הערת משתמש"
+      show: "הערות משתמש ({{count}})"
+      delete_confirm: "למחוק את הערת המשתמש הזאת"
       show_post: "הצגת פוסט"

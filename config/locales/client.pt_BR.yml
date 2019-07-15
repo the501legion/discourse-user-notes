@@ -8,9 +8,5 @@
 pt_BR:
   js:
     staff_notes:
-      title: "Anotações da Staff"
       attach: "Adicionar Anotação de Usuário"
-      remove: "Remover Anotação da Staff"
-      show: "Anotações da Staff ({{count}})"
-      delete_confirm: "Você tem certeza de que deseja excluir esta anotação da staff?"
       show_post: "Mostrar Postagem"

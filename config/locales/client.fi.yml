@@ -8,8 +8,4 @@
 fi:
   js:
     staff_notes:
-      title: "Henkilökunnan huomiot"
-      remove: "Poista henkilökunnan huomio"
-      show: "Henkilökunnan huomioita ({{count}})"
-      delete_confirm: "Oletko varma että haluat poistaa henkilökunnan huomion?"
       show_post: "Näytä viesti"

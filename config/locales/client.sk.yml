@@ -8,8 +8,4 @@
 sk:
   js:
     staff_notes:
-      title: "Poznámky personálu"
-      remove: "Odstráň poznámky personálu"
-      show: "Poznámky personálu ({{count}})"
-      delete_confirm: "Ste si istý, že chcete odstrániť túto poznámky personálu?"
       show_post: "Zobraz príspevok"

@@ -8,14 +8,12 @@
 hu:
   site_settings:
     staff_notes_enabled: "Megjegyzések hozzáadása a felhasználókhoz engedélyezése a személyzeti felhasználóknak"
-    staff_notes_moderators_delete: "Személyzeti megjegyzések törlésének engedélyezése a moderátorok számára"
   staff_notes:
     official_warning: "Hivatalos figyelmeztetést kaptál a következő felhasználótól @%{username} -- %{warning_link}"
     user_suspended: "@%{username} felfüggesztette ezt a fiókot a következő ideig, %{suspended_till}. Ok: %{reason}"
     user_silenced: "@%{username} elnémította ezt a fiókot a következő ideig, %{silenced_till}. Ok: %{reason}"
   reports:
     staff_notes:
-      title: "Személyzeti megjegyzések"
       labels:
         user: Felhasználó
         note: Megjegyzés

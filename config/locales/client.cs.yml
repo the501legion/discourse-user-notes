@@ -8,8 +8,4 @@
 cs:
   js:
     staff_notes:
-      title: "Redakční poznámky"
-      remove: "Odstranit redakční poznámku"
-      show: "Redakční poznámky ({{count}})"
-      delete_confirm: "Opravdu chcete smazat tuto redakční poznámku?"
       show_post: "Zobrazit příspěvek"

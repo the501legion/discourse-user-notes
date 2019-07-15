@@ -8,8 +8,4 @@
 ro:
   js:
     staff_notes:
-      title: "Note membrii echipă"
-      remove: "Șterge nota de membru de echipă"
-      show: "Note de personal  ({{count}})"
-      delete_confirm: "Ești sigur că vrei să ștergi această notă de membru de echipă?"
       show_post: "Arată postarea"

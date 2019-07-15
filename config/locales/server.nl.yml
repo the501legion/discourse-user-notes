@@ -8,15 +8,12 @@
 nl:
   site_settings:
     staff_notes_enabled: "Stafgebruikers mogen notities aan gebruikers toevoegen"
-    staff_notes_moderators_delete: "Moderators mogen stafnotities verwijderen"
   staff_notes:
     official_warning: "Heeft een officiële waarschuwing gekregen van @%{username} -- %{warning_link}"
     user_suspended: "@%{username} heeft deze account geschorst tot %{suspended_till}. Reden: %{reason}"
     user_silenced: "@%{username} heeft deze account gedempt tot %{silenced_till}. Reden: %{reason}"
   reports:
     staff_notes:
-      title: "Stafnotities"
-      description: "Meest recente stafnotities weergeven."
       labels:
         user: Gebruiker
         note: Notitie

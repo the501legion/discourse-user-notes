@@ -8,8 +8,4 @@
 hu:
   js:
     staff_notes:
-      title: "Személyzeti megjegyzések"
-      remove: "Személyzeti megjegyzés eltávolítása"
-      show: "Személyzeti megjegyzések ({{count}})"
-      delete_confirm: "Biztosan törölni szeretnéd a személyzeti megjegyzést?"
       show_post: "Bejegyzés mutatása"

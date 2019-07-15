@@ -8,15 +8,15 @@
 he:
   site_settings:
     staff_notes_enabled: "לאפשר למשתמשי הצוות לצרף הערות למשתמשים"
-    staff_notes_moderators_delete: "לאפשר למנהלים להסיר הערות צוות"
+    staff_notes_moderators_delete: "לאפשר למפקחים למחוק הערות משתמש"
   staff_notes:
     official_warning: "התקבלה אזהרה רשמית מאת ‎@%{username}‎ -- %{warning_link}"
     user_suspended: "חשבון זה הושעה על ידי ‎@%{username}‎ עד %{suspended_till}. סיבה: %{reason}"
     user_silenced: "חשבון זה הושתק על ידי @%{username}‎ עד %{silenced_till}. סיבה: %{reason}"
   reports:
     staff_notes:
-      title: "הערות הצוות"
-      description: "הצגת הערות הצוות העדכניות."
+      title: "הערות משתמש"
+      description: "הצגת הערות המשתמש העדכניות ביותר."
       labels:
         user: משתמש
         note: הערה
