@@ -1,6 +1,6 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { iconNode } from "discourse-common/lib/icon-library";
-import { showStaffNotes } from "discourse/plugins/discourse-staff-notes/discourse-staff-notes/lib/staff-notes";
+import { showStaffNotes } from "discourse/plugins/discourse-user-notes/discourse-staff-notes/lib/staff-notes";
 
 export default {
   name: "enable-staff-notes",
