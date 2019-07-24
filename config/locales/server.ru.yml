@@ -7,7 +7,7 @@
 
 ru:
   site_settings:
-    staff_notes_enabled: "Разрешить персоналу прикреплять заметки к пользователям"
+    user_notes_enabled: "Разрешить персоналу прикреплять заметки к пользователям"
   staff_notes:
     official_warning: "Получено официальное предупреждение от @%{username} -- %{warning_link}"
     user_suspended: "@%{username} приостановил этот аккаунт до %{suspended_till}. Причина: %{reason}"

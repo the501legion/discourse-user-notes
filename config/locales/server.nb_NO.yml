@@ -7,7 +7,7 @@
 
 nb_NO:
   site_settings:
-    staff_notes_enabled: "Tillat staben å opprette notater på brukere"
+    user_notes_enabled: "Tillat staben å opprette notater på brukere"
   staff_notes:
     official_warning: "Mottok en offisiell advarsel fra %{username} -- %{warning_link}"
     user_suspended: "@%{username} sperret denne kontoen til %{suspended_till}. Årsak: %{reason}"

@@ -7,7 +7,7 @@
 
 sk:
   site_settings:
-    staff_notes_enabled: "Umožniť personálu napísať poznámku k používateľom"
+    user_notes_enabled: "Umožniť personálu napísať poznámku k používateľom"
   reports:
     staff_notes:
       labels:

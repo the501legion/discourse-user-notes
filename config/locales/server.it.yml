@@ -7,7 +7,7 @@
 
 it:
   site_settings:
-    staff_notes_enabled: "Abilitare gli utenti dello staff ad allegare note agli utenti"
+    user_notes_enabled: "Abilitare gli utenti dello staff ad allegare note agli utenti"
   staff_notes:
     official_warning: "Ha ricevuto un richiamo ufficiale da @%{username} -- %{warning_link}"
     user_suspended: "@%{username} ha sospeso questo account fino a %{suspended_till}. Motivazione: %{reason}"

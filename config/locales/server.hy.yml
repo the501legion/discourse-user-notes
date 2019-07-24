@@ -7,7 +7,7 @@
 
 hy:
   site_settings:
-    staff_notes_enabled: "Թույլատրել անձնակազմի անդամներին կցել նշումներ օգտատերերին"
+    user_notes_enabled: "Թույլատրել անձնակազմի անդամներին կցել նշումներ օգտատերերին"
   staff_notes:
     official_warning: "Ստացել է պաշտոնական զգուշացում @%{username} -ից -- %{warning_link}"
     user_suspended: "@%{username} -ը սառեցրել է հաշիվը մինչև %{suspended_till}: Պատճառը՝ %{reason}"

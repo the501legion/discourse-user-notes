@@ -7,7 +7,7 @@
 
 cs:
   site_settings:
-    staff_notes_enabled: "Povolit redaktorům připojit poznámku k uživatelům"
+    user_notes_enabled: "Povolit redaktorům připojit poznámku k uživatelům"
   staff_notes:
     official_warning: "Obdrženo oficiální varování od @%{username} -- %{warning_link}"
     user_suspended: "@%{username} zakázal tento účet do %{suspended_till}. Důvod: %{reason}"

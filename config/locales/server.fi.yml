@@ -7,7 +7,7 @@
 
 fi:
   site_settings:
-    staff_notes_enabled: "Salli henkilökunnan lisätä huomioita käyttäjiin liittyen"
+    user_notes_enabled: "Salli henkilökunnan lisätä huomioita käyttäjiin liittyen"
   staff_notes:
     official_warning: "%{username} antoi virallisen varoituksen - %{warning_link}"
     user_suspended: "@%{username} hyllytti käyttäjätilin %{suspended_till} asti. Syy: %{reason}"

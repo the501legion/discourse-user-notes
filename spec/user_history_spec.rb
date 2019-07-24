@@ -9,7 +9,7 @@ describe UserHistory do
   describe 'when a user suspension log is created' do
     context "staff notes plugin is enabled" do
       before do
-        SiteSetting.staff_notes_enabled = true
+        SiteSetting.user_notes_enabled = true
       end
 
       it "should create staff note for suspension" do

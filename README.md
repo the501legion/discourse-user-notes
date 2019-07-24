@@ -1,4 +1,4 @@
-### discourse-staff-notes
+### discourse-user-notes
 
 This plugin gives staff members the ability to attach notes to users.
 
@@ -11,9 +11,9 @@ Follow our [Install a Plugin](https://meta.discourse.org/t/install-a-plugin/1915
 `git clone https://github.com/discourse/discourse-staff-notes.git` as the plugin command.
 
 Once you've installed it, review the settings under admin and then enable
-`staff_notes_enabled`.
+`user_notes_enabled`.
 
-**Clearing browser cache might be required when first insalled**
+**Clearing browser cache might be required when first installed**
 
 ## Issues
 

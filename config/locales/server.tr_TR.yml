@@ -7,7 +7,7 @@
 
 tr_TR:
   site_settings:
-    staff_notes_enabled: "Personel kullanıcılarının, kullanıcılara not eklemesine izin ver"
+    user_notes_enabled: "Personel kullanıcılarının, kullanıcılara not eklemesine izin ver"
   reports:
     staff_notes:
       labels:

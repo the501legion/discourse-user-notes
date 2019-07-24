@@ -8,7 +8,7 @@ export default {
     const siteSettings = container.lookup("site-settings:main");
     const currentUser = container.lookup("current-user:main");
     if (
-      !siteSettings.staff_notes_enabled ||
+      !siteSettings.user_notes_enabled ||
       !currentUser ||
       !currentUser.staff
     ) {

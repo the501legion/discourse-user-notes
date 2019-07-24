@@ -7,8 +7,8 @@
 
 ur:
   site_settings:
-    staff_notes_enabled: "اسٹاف صارفین کو صارفین کیساتھ نوٹ منسلک کرنے کی اجازت دیں"
-    staff_notes_moderators_delete: "منتظمین کو صارف نوٹس حذف کرنے کی اجازت دیں"
+    user_notes_enabled: "اسٹاف صارفین کو صارفین کیساتھ نوٹ منسلک کرنے کی اجازت دیں"
+    user_notes_moderators_delete: "منتظمین کو صارف نوٹس حذف کرنے کی اجازت دیں"
   staff_notes:
     official_warning: "@%{username} کی طرف سے ایک آفیشل انتباہ ملی -- %{warning_link}"
     user_suspended: "@%{username}نے یہ اکاؤنٹ %{suspended_till}تک معطل کر دیا۔ وجہ: %{reason} "

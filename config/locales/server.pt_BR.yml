@@ -7,7 +7,7 @@
 
 pt_BR:
   site_settings:
-    staff_notes_enabled: "Permitir que usuários da staff anexem notas aos usuários"
+    user_notes_enabled: "Permitir que usuários da staff anexem notas aos usuários"
   staff_notes:
     official_warning: "Recebido um aviso oficial de @%{username} -- %{warning_link}"
     user_suspended: "@%{username} suspendeu esta conta até %{suspended_till}. Motivo: %{reason}"

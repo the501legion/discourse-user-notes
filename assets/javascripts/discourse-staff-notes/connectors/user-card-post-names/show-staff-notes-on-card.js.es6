@@ -5,7 +5,7 @@ import { emojiUrlFor } from "discourse/lib/text";
 export default {
   shouldRender(args, component) {
     const { siteSettings, currentUser } = component;
-    return siteSettings.staff_notes_enabled && currentUser && currentUser.staff;
+    return siteSettings.user_notes_enabled && currentUser && currentUser.staff;
   },
 
   setupComponent(args, component) {

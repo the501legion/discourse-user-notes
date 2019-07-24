@@ -7,7 +7,7 @@
 
 sw:
   site_settings:
-    staff_notes_enabled: "Waruhusu wasaidizi waambatanishe madokezo kwa watumiaji"
+    user_notes_enabled: "Waruhusu wasaidizi waambatanishe madokezo kwa watumiaji"
   staff_notes:
     official_warning: "Umepokea onyo kutoka kwa @%{username} -- %{warning_link}"
     user_suspended: "@%{username}amesimamisha akaunti yake mpaka %{suspended_till}. Sababu:%{reason}"

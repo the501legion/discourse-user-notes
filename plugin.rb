@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-# name: discourse-staff-notes
+# name: discourse-user-notes
 # about: Gives the ability for staff members to attach notes to users
 # version: 0.0.2
 # authors: Robin Ward
 # url: https://github.com/discourse/discourse-staff-notes
 
-enabled_site_setting :staff_notes_enabled
+enabled_site_setting :user_notes_enabled
 
 register_asset 'stylesheets/staff_notes.scss'
 
@@ -203,7 +203,7 @@ after_initialize do
   whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
 
   add_to_class(Guardian, :can_delete_staff_notes?) do
-    (SiteSetting.staff_notes_moderators_delete? && user.staff?) || user.admin?
+    (SiteSetting.user_notes_moderators_delete? && user.staff?) || user.admin?
   end
 
   add_to_serializer(:admin_detailed_user, :staff_notes_count, false) do

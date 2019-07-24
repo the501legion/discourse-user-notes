@@ -7,7 +7,7 @@
 
 sl:
   site_settings:
-    staff_notes_enabled: "Omogoči opombe osebja na uporabniku"
+    user_notes_enabled: "Omogoči opombe osebja na uporabniku"
   staff_notes:
     official_warning: "Prejel uradno opozorilo od @%{username} -- %{warning_link}"
     user_suspended: "@%{username} supendiral ta račun do %{suspended_till}. Razlog: %{reason}"

@@ -3,7 +3,7 @@ import { getOwner } from "discourse-common/lib/get-owner";
 
 export default {
   shouldRender(args, component) {
-    return component.siteSettings.staff_notes_enabled;
+    return component.siteSettings.user_notes_enabled;
   },
 
   setupComponent(args, component) {

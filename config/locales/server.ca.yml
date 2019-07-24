@@ -7,8 +7,8 @@
 
 ca:
   site_settings:
-    staff_notes_enabled: "Permet als usuaris de l'equip responsable adjuntar notes als usuaris"
-    staff_notes_moderators_delete: "Permet que els moderadors suprimeixin notes d’usuari"
+    user_notes_enabled: "Permet als usuaris de l'equip responsable adjuntar notes als usuaris"
+    user_notes_moderators_delete: "Permet que els moderadors suprimeixin notes d’usuari"
   staff_notes:
     official_warning: "Rebut un advertiment oficial de @%{username} - %{warning_link}"
     user_suspended: "@ %{username} ha suspès aquest compte fins a %{suspended_till}. Motiu: %{reason}"

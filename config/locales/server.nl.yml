@@ -7,7 +7,7 @@
 
 nl:
   site_settings:
-    staff_notes_enabled: "Stafgebruikers mogen notities aan gebruikers toevoegen"
+    user_notes_enabled: "Stafgebruikers mogen notities aan gebruikers toevoegen"
   staff_notes:
     official_warning: "Heeft een officiële waarschuwing gekregen van @%{username} -- %{warning_link}"
     user_suspended: "@%{username} heeft deze account geschorst tot %{suspended_till}. Reden: %{reason}"
