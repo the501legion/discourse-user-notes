@@ -8,7 +8,7 @@ any staff notes. Clicking on it will reveal the notes other staff members have l
 ## Installation
 
 Follow our [Install a Plugin](https://meta.discourse.org/t/install-a-plugin/19157) howto, using
-`git clone https://github.com/discourse/discourse-staff-notes.git` as the plugin command.
+`git clone https://github.com/discourse/discourse-user-notes.git` as the plugin command.
 
 Once you've installed it, review the settings under admin and then enable
 `user_notes_enabled`.
