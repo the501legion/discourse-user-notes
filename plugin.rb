@@ -4,24 +4,24 @@
 # about: Gives the ability for staff members to attach notes to users
 # version: 0.0.2
 # authors: Robin Ward
-# url: https://github.com/discourse/discourse-staff-notes
+# url: https://github.com/discourse/discourse-user-notes
 
 enabled_site_setting :user_notes_enabled
 
-register_asset 'stylesheets/staff_notes.scss'
+register_asset 'stylesheets/user_notes.scss'
 
 register_svg_icon "sticky-note" if respond_to?(:register_svg_icon)
 
-STAFF_NOTE_COUNT_FIELD = "staff_notes_count"
+COUNT_FIELD = "user_notes_count"
 
 after_initialize do
 
   require_dependency 'user'
 
-  module ::DiscourseStaffNotes
+  module ::DiscourseUserNotes
     class Engine < ::Rails::Engine
-      engine_name "discourse_staff_notes"
-      isolate_namespace DiscourseStaffNotes
+      engine_name "discourse_user_notes"
+      isolate_namespace DiscourseUserNotes
     end
 
     def self.key_for(user_id)
@@ -29,7 +29,7 @@ after_initialize do
     end
 
     def self.notes_for(user_id)
-      PluginStore.get('staff_notes', key_for(user_id)) || []
+      PluginStore.get('user_notes', key_for(user_id)) || []
     end
 
     def self.add_note(user, raw, created_by, opts = nil)
@@ -45,9 +45,9 @@ after_initialize do
       }.merge(opts)
 
       notes << record
-      ::PluginStore.set("staff_notes", key_for(user.id), notes)
+      ::PluginStore.set("user_notes", key_for(user.id), notes)
 
-      user.custom_fields[STAFF_NOTE_COUNT_FIELD] = notes.size
+      user.custom_fields[COUNT_FIELD] = notes.size
       user.save_custom_fields
 
       record
@@ -58,18 +58,18 @@ after_initialize do
       notes.reject! { |n| n[:id] == note_id }
 
       if notes.size > 0
-        ::PluginStore.set("staff_notes", key_for(user.id), notes)
+        ::PluginStore.set("user_notes", key_for(user.id), notes)
       else
-        ::PluginStore.remove("staff_notes", key_for(user.id))
+        ::PluginStore.remove("user_notes", key_for(user.id))
       end
-      user.custom_fields[STAFF_NOTE_COUNT_FIELD] = notes.size
+      user.custom_fields[COUNT_FIELD] = notes.size
       user.save_custom_fields
     end
 
   end
 
   require_dependency 'application_serializer'
-  class ::StaffNoteSerializer < ApplicationSerializer
+  class ::UserNoteSerializer < ApplicationSerializer
     attributes(
       :id,
       :user_id,
@@ -103,7 +103,7 @@ after_initialize do
     end
 
     def can_delete
-      scope.can_delete_staff_notes?
+      scope.can_delete_user_notes?
     end
 
     def post_id
@@ -131,7 +131,7 @@ after_initialize do
   end
 
   require_dependency 'application_controller'
-  class DiscourseStaffNotes::StaffNotesController < ::ApplicationController
+  class DiscourseUserNotes::UserNotesController < ::ApplicationController
     before_action :ensure_logged_in
     before_action :ensure_staff
 
@@ -139,38 +139,38 @@ after_initialize do
       user = User.where(id: params[:user_id]).first
       raise Discourse::NotFound if user.blank?
 
-      notes = ::DiscourseStaffNotes.notes_for(params[:user_id])
+      notes = ::DiscourseUserNotes.notes_for(params[:user_id])
       render json: {
         extras: { username: user.username },
-        staff_notes: create_json(notes.reverse)
+        user_notes: create_json(notes.reverse)
       }
     end
 
     def create
-      user = User.where(id: params[:staff_note][:user_id]).first
+      user = User.where(id: params[:user_note][:user_id]).first
       raise Discourse::NotFound if user.blank?
       extras = {}
-      if post_id = params[:staff_note][:post_id]
+      if post_id = params[:user_note][:post_id]
         extras[:post_id] = post_id
       end
 
-      staff_note = ::DiscourseStaffNotes.add_note(
+      user_note = ::DiscourseUserNotes.add_note(
         user,
-        params[:staff_note][:raw],
+        params[:user_note][:raw],
         current_user.id,
         extras
       )
 
-      render json: create_json(staff_note)
+      render json: create_json(user_note)
     end
 
     def destroy
       user = User.where(id: params[:user_id]).first
       raise Discourse::NotFound if user.blank?
 
-      raise Discourse::InvalidAccess.new unless guardian.can_delete_staff_notes?
+      raise Discourse::InvalidAccess.new unless guardian.can_delete_user_notes?
 
-      ::DiscourseStaffNotes.remove_note(user, params[:id])
+      ::DiscourseUserNotes.remove_note(user, params[:id])
       render json: success_json
     end
 
@@ -196,36 +196,36 @@ after_initialize do
         obj[:post] = Post.with_deleted.where(id: obj[:post_id]).first
       end
 
-      serialize_data(obj, ::StaffNoteSerializer)
+      serialize_data(obj, ::UserNoteSerializer)
     end
   end
 
-  whitelist_staff_user_custom_field(STAFF_NOTE_COUNT_FIELD)
+  whitelist_staff_user_custom_field(COUNT_FIELD)
 
-  add_to_class(Guardian, :can_delete_staff_notes?) do
+  add_to_class(Guardian, :can_delete_user_notes?) do
     (SiteSetting.user_notes_moderators_delete? && user.staff?) || user.admin?
   end
 
-  add_to_serializer(:admin_detailed_user, :staff_notes_count, false) do
-    object.custom_fields && object.custom_fields['staff_notes_count'].to_i
+  add_to_serializer(:admin_detailed_user, :user_notes_count, false) do
+    object.custom_fields && object.custom_fields['user_notes_count'].to_i
   end
 
-  DiscourseStaffNotes::Engine.routes.draw do
-    get '/' => 'staff_notes#index'
-    post '/' => 'staff_notes#create'
-    delete '/:id' => 'staff_notes#destroy'
+  DiscourseUserNotes::Engine.routes.draw do
+    get '/' => 'user_notes#index'
+    post '/' => 'user_notes#create'
+    delete '/:id' => 'user_notes#destroy'
   end
 
   Discourse::Application.routes.append do
-    mount ::DiscourseStaffNotes::Engine, at: "/staff_notes"
+    mount ::DiscourseUserNotes::Engine, at: "/user_notes"
   end
 
   add_model_callback(UserWarning, :after_commit, on: :create) do
     user = User.find_by_id(self.user_id)
     created_by_user = User.find_by_id(self.created_by_id)
     warning_topic = Topic.find_by_id(self.topic_id)
-    raw_note = I18n.t("staff_notes.official_warning", username: created_by_user.username, warning_link: "[#{warning_topic.title}](#{warning_topic.url})")
-    ::DiscourseStaffNotes.add_note(
+    raw_note = I18n.t("user_notes.official_warning", username: created_by_user.username, warning_link: "[#{warning_topic.title}](#{warning_topic.url})")
+    ::DiscourseUserNotes.add_note(
       user,
       raw_note,
       Discourse::SYSTEM_USER_ID,
@@ -237,8 +237,8 @@ after_initialize do
     return unless self.action == UserHistory.actions[:suspend_user]
     target_user = User.find_by_id(self.target_user_id)
     created_by_user = User.find_by_id(self.acting_user_id)
-    raw_note = I18n.t("staff_notes.user_suspended", username: created_by_user.username, suspended_till: I18n.l(target_user.suspended_till, format: :date_only), reason: self.details)
-    ::DiscourseStaffNotes.add_note(
+    raw_note = I18n.t("user_notes.user_suspended", username: created_by_user.username, suspended_till: I18n.l(target_user.suspended_till, format: :date_only), reason: self.details)
+    ::DiscourseUserNotes.add_note(
       target_user,
       raw_note,
       Discourse::SYSTEM_USER_ID,
@@ -249,7 +249,7 @@ after_initialize do
 
   on(:user_silenced) do |details|
     raw_note = I18n.t(
-      "staff_notes.user_silenced",
+      "user_notes.user_silenced",
       username: details[:silenced_by]&.username || '',
       silenced_till: I18n.l(details[:silenced_till], format: :date_only),
       reason: details[:reason]
@@ -259,7 +259,7 @@ after_initialize do
       note_args = { post_id: post.id, topic_id: post.topic_id }
     end
 
-    ::DiscourseStaffNotes.add_note(
+    ::DiscourseUserNotes.add_note(
       details[:user],
       raw_note,
       Discourse::SYSTEM_USER_ID,
@@ -268,7 +268,7 @@ after_initialize do
   end
 
   if respond_to? :add_report
-    add_report('staff_notes') do |report|
+    add_report('user_notes') do |report|
       report.modes = [:table]
 
       report.data = []
@@ -281,7 +281,7 @@ after_initialize do
             id: :user_id,
             avatar: :user_avatar_template,
           },
-          title: I18n.t("reports.staff_notes.labels.user")
+          title: I18n.t("reports.user_notes.labels.user")
         },
         {
           type: :user,
@@ -290,35 +290,38 @@ after_initialize do
             id: :moderator_id,
             avatar: :moderator_avatar_template,
           },
-          title: I18n.t("reports.staff_notes.labels.moderator")
+          title: I18n.t("reports.user_notes.labels.moderator")
         },
-        { type: :text, property: :note, title: I18n.t("reports.staff_notes.labels.note") }
+        { type: :text, property: :note, title: I18n.t("reports.user_notes.labels.note") }
       ]
 
       values = []
 
-      values = PluginStoreRow.where(plugin_name: 'staff_notes')
+      values = PluginStoreRow.where(plugin_name: 'user_notes')
         .where("value::json->0->>'created_at'>?", report.start_date)
         .where("value::json->0->>'created_at'<?", report.end_date)
         .pluck(:value)
 
       values.each do |value|
-        data = {}
-        note = JSON.parse(value)[0]
-        created_at = Time.parse(note['created_at'])
-        user = User.find_by(id: note['user_id'])
-        moderator = User.find_by(id: note['created_by'])
+        notes = JSON.parse(value)
+        notes.each do |note|
+          data = {}
+          created_at = Time.parse(note['created_at'])
+          user = User.find_by(id: note['user_id'])
+          moderator = User.find_by(id: note['created_by'])
 
-        if user && moderator
-          data[:created_at] = created_at
-          data[:user_id] = user.id
-          data[:username] = user.username_lower
-          data[:user_avatar_template] = User.avatar_template(user.username_lower, user.uploaded_avatar_id)
-          data[:moderator_id] = moderator.id
-          data[:moderator_username] = moderator.username_lower
-          data[:moderator_avatar_template] = User.avatar_template(moderator.username_lower, moderator.uploaded_avatar_id)
-          data[:note] = note['raw']
-          report.data << data
+          if user && moderator
+            data[:created_at] = created_at
+            data[:user_id] = user.id
+            data[:username] = user.username_lower
+            data[:user_avatar_template] = User.avatar_template(user.username_lower, user.uploaded_avatar_id)
+            data[:moderator_id] = moderator.id
+            data[:moderator_username] = moderator.username_lower
+            data[:moderator_avatar_template] = User.avatar_template(moderator.username_lower, moderator.uploaded_avatar_id)
+            data[:note] = note['raw']
+
+            report.data << data
+          end
         end
       end
     end

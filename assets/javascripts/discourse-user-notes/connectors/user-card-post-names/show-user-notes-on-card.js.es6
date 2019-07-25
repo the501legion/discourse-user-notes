@@ -1,4 +1,4 @@
-import { showStaffNotes } from "discourse/plugins/discourse-user-notes/discourse-staff-notes/lib/staff-notes";
+import { showUserNotes } from "discourse/plugins/discourse-user-notes/discourse-user-notes/lib/user-notes";
 import { getOwner } from "discourse-common/lib/get-owner";
 import { emojiUrlFor } from "discourse/lib/text";
 
@@ -11,24 +11,28 @@ export default {
   setupComponent(args, component) {
     const { user } = args;
     const count =
-      user.get("staff_notes_count") ||
-      user.get("custom_fields.staff_notes_count") ||
+      user.get("user_notes_count") ||
+      user.get("custom_fields.user_notes_count") ||
       0;
-    component.set("staffNotesCount", count);
+    component.set("userNotesCount", count);
     component.set("emojiEnabled", component.siteSettings.enable_emoji);
     component.set("emojiUrl", emojiUrlFor("pencil"));
     component.set("user", user);
-    component.set("staffNotesTitle", I18n.t("staff_notes.show", { count }));
+    component.set("userNotesTitle", I18n.t("user_notes.show", { count }));
   },
 
   actions: {
-    showStaffNotes() {
+    showUserNotes() {
       this.parentView.parentView._close();
       const store = getOwner(this).lookup("store:main");
       const user = this.get("args.user");
-      showStaffNotes(store, user.get("id"), count =>
-        this.set("staffNotesCount", count)
-      );
+      showUserNotes(store, user.get("id"), count => {
+        if (this.isDestroying || this.isDestroyed) {
+          return;
+        }
+
+        this.set("userNotesCount", count);
+      });
     }
   }
 };

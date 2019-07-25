@@ -1,6 +1,6 @@
 en:
   js:
-    staff_notes:
+    user_notes:
       title: "User Notes"
       attach: "Add User Note"
       remove: "Remove User Note"

@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
 
   actions: {
     attachNote() {
-      const note = this.store.createRecord("staff-note");
+      const note = this.store.createRecord("user-note");
       const userId = parseInt(this.get("userId"));
 
       this.set("saving", true);
@@ -53,7 +53,7 @@ export default Ember.Controller.extend({
 
     removeNote(note) {
       bootbox.confirm(
-        I18n.t("staff_notes.delete_confirm"),
+        I18n.t("user_notes.delete_confirm"),
         I18n.t("no_value"),
         I18n.t("yes_value"),
         result => {

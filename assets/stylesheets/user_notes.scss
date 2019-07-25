@@ -1,10 +1,10 @@
 #discourse-modal {
-  .modal-body.staff-notes-modal {
+  .modal-body.user-notes-modal {
     max-height: 80vh !important;
   }
 }
 
-.modal-body.staff-notes-modal {
+.modal-body.user-notes-modal {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -36,7 +36,7 @@
     }
   }
 
-  .staff-note {
+  .user-note {
     border-top: 1px solid $primary-low;
     padding-top: 1em;
 
@@ -53,7 +53,7 @@
   }
 }
 
-.staff-notes-icon {
+.user-notes-icon {
   .mobile-view & {
     order: 2;
     margin-left: 10px;
@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.admin-report.staff-notes {
+.admin-report.user-notes {
   grid-column: span 12;
 
   .admin-report-table {

@@ -16,7 +16,7 @@ describe UserWarning do
       it "should create staff note for warning" do
         UserWarning.create(topic_id: topic.id, user_id: user.id, created_by_id: admin.id)
 
-        expect(PluginStore.get('staff_notes', "notes:#{user.id}")).to be_present
+        expect(PluginStore.get('user_notes', "notes:#{user.id}")).to be_present
       end
     end
   end

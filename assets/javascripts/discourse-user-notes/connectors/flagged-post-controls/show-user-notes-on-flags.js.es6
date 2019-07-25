@@ -1,4 +1,4 @@
-import { showStaffNotes } from "discourse/plugins/discourse-user-notes/discourse-staff-notes/lib/staff-notes";
+import { showUserNotes } from "discourse/plugins/discourse-user-notes/discourse-user-notes/lib/user-notes";
 import { getOwner } from "discourse-common/lib/get-owner";
 
 export default {
@@ -9,17 +9,17 @@ export default {
   setupComponent(args, component) {
     let model = args.flaggedPost.get("user");
     component.set(
-      "staffNotesCount",
-      model.get("custom_fields.staff_notes_count") || 0
+      "userNotesCount",
+      model.get("custom_fields.user_notes_count") || 0
     );
   },
 
   actions: {
-    showStaffNotes() {
+    showUserNotes() {
       const store = getOwner(this).lookup("store:main");
       const user = this.get("args.flaggedPost.user");
-      showStaffNotes(store, user.get("id"), count =>
-        this.set("staffNotesCount", count)
+      showUserNotes(store, user.get("id"), count =>
+        this.set("userNotesCount", count)
       );
     }
   }
