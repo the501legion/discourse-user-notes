@@ -18,9 +18,7 @@ export default {
     showUserNotes() {
       const store = getOwner(this).lookup("store:main");
       const user = this.get("args.flaggedPost.user");
-      showUserNotes(store, user.id, count =>
-        this.set("userNotesCount", count)
-      );
+      showUserNotes(store, user.id, count => this.set("userNotesCount", count));
     }
   }
 };
