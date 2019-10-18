@@ -296,10 +296,9 @@ after_initialize do
       ]
 
       values = []
-
       values = PluginStoreRow.where(plugin_name: 'user_notes')
-        .where("value::json->0->>'created_at'>?", report.start_date)
-        .where("value::json->0->>'created_at'<?", report.end_date)
+        .where("value::json->0->>'created_at'>=?", report.start_date)
+        .where("value::json->0->>'created_at'<=?", report.end_date)
         .pluck(:value)
 
       values.each do |value|
