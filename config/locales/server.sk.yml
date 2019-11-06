@@ -9,7 +9,7 @@ sk:
   site_settings:
     user_notes_enabled: "Umožniť personálu napísať poznámku k používateľom"
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Používateľ
         moderator: Moderátor

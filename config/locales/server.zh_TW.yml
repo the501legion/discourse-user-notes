@@ -7,7 +7,7 @@
 
 zh_TW:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: 使用者
         moderator: 板主

@@ -7,7 +7,7 @@
 
 sq:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: User
         moderator: Moderator

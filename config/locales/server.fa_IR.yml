@@ -7,7 +7,7 @@
 
 fa_IR:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: کاربر
         moderator: مدیر

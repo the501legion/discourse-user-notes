@@ -7,7 +7,7 @@
 
 vi:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Người dùng
         moderator: Điều hành

@@ -7,7 +7,7 @@
 
 th:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: ผู้ใช้
         moderator: ผู้ดูแล

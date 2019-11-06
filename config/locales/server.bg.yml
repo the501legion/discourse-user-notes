@@ -7,7 +7,7 @@
 
 bg:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Потребител
         moderator: Модератор

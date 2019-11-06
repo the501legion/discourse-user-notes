@@ -7,7 +7,7 @@
 
 sr:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Korisnik
         moderator: Moderator

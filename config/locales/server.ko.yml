@@ -7,7 +7,7 @@
 
 ko:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: 사용자
         note: 노트

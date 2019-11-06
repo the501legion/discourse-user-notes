@@ -7,6 +7,6 @@
 
 et:
   js:
-    staff_notes:
+    user_notes:
       attach: "Lisa kasutaja märkus"
       show_post: "Näita postitust"

@@ -7,6 +7,6 @@
 
 nl:
   js:
-    staff_notes:
+    user_notes:
       attach: "Gebruikersnotitie toevoegen"
       show_post: "Bericht tonen"

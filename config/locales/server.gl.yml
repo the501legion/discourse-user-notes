@@ -7,7 +7,7 @@
 
 gl:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Usuario
         moderator: Moderador

@@ -7,7 +7,7 @@
 
 be:
   reports:
-    staff_notes:
+    user_notes:
       labels:
-        user: карыстальнік
-        moderator: Мадэратар
+        user: Карыстальнік
+        moderator: запавольнік

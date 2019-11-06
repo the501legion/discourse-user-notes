@@ -7,6 +7,6 @@
 
 ru:
   js:
-    staff_notes:
+    user_notes:
       attach: "Добавить заметку"
       show_post: "Показать заметку"

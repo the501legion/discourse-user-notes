@@ -7,6 +7,10 @@
 
 pl_PL:
   js:
-    staff_notes:
+    user_notes:
+      title: "Notatki do użytkownika"
       attach: "Dodaj notatkę do użytkownika"
+      remove: "Usuń notatkę do użytkownika"
+      show: "Notatki do użytkowników ({{count}})"
+      delete_confirm: "Czy na pewno chcesz usunąć tę notatkę do użytkownika?"
       show_post: "Pokaż wiadomość"

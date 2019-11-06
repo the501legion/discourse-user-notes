@@ -7,7 +7,7 @@
 
 te:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: సభ్యుడు
         moderator: నిర్వాహకుడు

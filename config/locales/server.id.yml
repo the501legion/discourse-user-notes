@@ -7,7 +7,7 @@
 
 id:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Pengguna
         moderator: Moderator

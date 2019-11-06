@@ -5,4 +5,12 @@
 # To work with us on translations, join this project:
 # https://www.transifex.com/projects/p/discourse-org/
 
-da: {}
+da:
+  js:
+    user_notes:
+      title: "Bruger noter"
+      attach: "Tilføj bruger note"
+      remove: "Fjern bruger note"
+      show: "Bruger noter ({{count}})"
+      delete_confirm: "Er du sikker på, at du vil slette den bruger note?"
+      show_post: "Vis indlæg"

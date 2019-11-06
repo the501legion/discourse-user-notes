@@ -7,7 +7,7 @@
 
 ar:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: مستخدم
         note: ملاحظة

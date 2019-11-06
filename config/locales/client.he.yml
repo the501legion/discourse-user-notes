@@ -7,7 +7,7 @@
 
 he:
   js:
-    staff_notes:
+    user_notes:
       title: "הערות משתמש"
       attach: "הוספת הערת משתמש"
       remove: "הסרת הערת משתמש"

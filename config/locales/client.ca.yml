@@ -7,10 +7,10 @@
 
 ca:
   js:
-    staff_notes:
+    user_notes:
       title: "Notes d'usuari"
-      attach: "Afegeix una nota d&#39;usuari"
-      remove: "Suprimeix la nota d’usuari"
+      attach: "Afegeix una nota d'usuari"
+      remove: "Elimina la nota d'usuari"
       show: "Notes d'usuari ({{count}})"
-      delete_confirm: "Esteu segur que voleu suprimir aquesta nota d’usuari?"
+      delete_confirm: "Esteu segur que voleu suprimir aquesta nota d'usuari?"
       show_post: "Mostra la publicació"

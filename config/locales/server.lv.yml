@@ -7,7 +7,7 @@
 
 lv:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Lietotājs
         moderator: Moderātors

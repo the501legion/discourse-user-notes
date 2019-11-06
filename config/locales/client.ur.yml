@@ -7,7 +7,7 @@
 
 ur:
   js:
-    staff_notes:
+    user_notes:
       title: "صارف نوٹس"
       attach: "صارف نوٹ شامل کریں"
       remove: "صارف نوٹ ہٹائیں"

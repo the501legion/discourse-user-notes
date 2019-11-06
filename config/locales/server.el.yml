@@ -7,7 +7,7 @@
 
 el:
   reports:
-    staff_notes:
+    user_notes:
       labels:
         user: Χρήστης
         moderator: Συντονιστής

@@ -7,10 +7,10 @@
 
 es:
   js:
-    staff_notes:
-      title: "Notas del Usuario"
+    user_notes:
+      title: "Notas del usuario"
       attach: "Añadir nota de usuario"
-      remove: "Eliminar Nota de Usuario"
-      show: "Notas de Usuario ({{count}})"
-      delete_confirm: "¿Estás seguro de eliminar esta nota de usuario?"
-      show_post: "Mostrar mensaje"
+      remove: "Quitar nota de usuario"
+      show: "Notas de usuario ({{count}})"
+      delete_confirm: "¿Estás seguro de que deseas eliminar esta nota de usuario?"
+      show_post: "Mostrar publicación"

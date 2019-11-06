@@ -7,6 +7,10 @@
 
 sl:
   js:
-    staff_notes:
+    user_notes:
+      title: "Opomba osebja"
       attach: "Dodaj opombo osebja"
+      remove: "Odstrani opombo osebja"
+      show: "Opombe osebja ({{count}})"
+      delete_confirm: "Ali želite odstraniti opombo osebja?"
       show_post: "Prikaži prispevek"
