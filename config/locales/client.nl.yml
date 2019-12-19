@@ -8,5 +8,9 @@
 nl:
   js:
     user_notes:
+      title: "Gebruikersnotities"
       attach: "Gebruikersnotitie toevoegen"
+      remove: "Gebruikersnotitie verwijderen"
+      show: "Gebruikersnotities ({{count}})"
+      delete_confirm: "Weet u zeker dat u die gebruikersnotitie wilt verwijderen?"
       show_post: "Bericht tonen"
