@@ -8,12 +8,15 @@
 pt_BR:
   site_settings:
     user_notes_enabled: "Permitir que usuários da staff anexem notas aos usuários"
+    user_notes_moderators_delete: "Permitir que moderadores apaguem notas de usuários"
   user_notes:
     official_warning: "Recebido um aviso oficial de @%{username} -- %{warning_link}"
     user_suspended: "@%{username} suspendeu esta conta até %{suspended_till}. Motivo: %{reason}"
     user_silenced: "@%{username} silenciou esta conta até %{silenced_till}. Motivo: %{reason}"
   reports:
     user_notes:
+      title: "Notas de usuários"
+      description: "Listar as notas de usuários mais recentes."
       labels:
         user: Usuário
         note: Anotação
