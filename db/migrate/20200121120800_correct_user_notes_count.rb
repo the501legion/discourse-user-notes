@@ -11,8 +11,8 @@ class CorrectUserNotesCount < ActiveRecord::Migration[5.2]
         value,
         created_at,
         updated_at
-      ) SELECT 
-          REPLACE(key, 'notes:', '')::int, 
+      ) SELECT
+          REPLACE(key, 'notes:', '')::int,
           'user_notes_count',
           json_array_length(value::json),
           now(),
