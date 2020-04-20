@@ -1,6 +1,7 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { iconNode } from "discourse-common/lib/icon-library";
 import { showUserNotes } from "discourse/plugins/discourse-user-notes/discourse-user-notes/lib/user-notes";
+import { observes, on } from "discourse-common/utils/decorators";
 
 export default {
   name: "enable-user-notes",
@@ -39,14 +40,14 @@ export default {
       api.modifyClass("controller:user", {
         userNotesCount: null,
 
+        @on("init")
+        @observes("model")
         _modelChanged: function() {
           this.set(
             "userNotesCount",
             this.get("model.custom_fields.user_notes_count") || 0
           );
-        }
-          .observes("model")
-          .on("init"),
+        },
 
         actions: {
           showUserNotes() {
