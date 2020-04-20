@@ -1,7 +1,7 @@
 import {
-  default as computed,
+  default as discourseComputed,
   on
-} from "ember-addons/ember-computed-decorators";
+} from "discourse-common/utils/decorators";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 
 export default Ember.Controller.extend({
@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     this.setProperties({ newNote: null, saving: false, callback: null });
   },
 
-  @computed("newNote", "saving")
+  @discourseComputed("newNote", "saving")
   attachDisabled(newNote, saving) {
     return saving || !newNote || newNote.length === 0;
   },
