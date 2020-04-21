@@ -12,7 +12,6 @@
     "sourceType": "module"
   },
   "globals": {
-    "$": true,
     "_": true,
     "andThen": true,
     "asyncRender": true,
@@ -27,7 +26,6 @@
     "currentURL": true,
     "define": true,
     "Discourse": true,
-    "Ember": true,
     "exists": true,
     "File": true,
     "fillIn": true,
@@ -36,7 +34,6 @@
     "hasModule": true,
     "I18n": true,
     "invisible": true,
-    "jQuery": true,
     "keyboardHelper": true,
     "keyEvent": true,
     "moduleFor": true,

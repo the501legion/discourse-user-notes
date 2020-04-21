@@ -1,5 +1,8 @@
-export default Ember.Component.extend({
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+
+export default Component.extend({
   tagName: "",
 
-  showCount: Ember.computed.gt("count", 0)
+  showCount: computed.gt("count", 0)
 });
