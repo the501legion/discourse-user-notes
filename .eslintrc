@@ -9,7 +9,10 @@
   },
   "parserOptions": {
     "ecmaVersion": 7,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
   },
   "globals": {
     "_": true,
