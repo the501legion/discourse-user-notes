@@ -3,8 +3,9 @@ import {
   on
 } from "discourse-common/utils/decorators";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import Controller from "@ember/controller";
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   newNote: null,
   saving: false,
   user: null,
