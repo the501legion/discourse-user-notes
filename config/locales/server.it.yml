@@ -7,12 +7,12 @@
 
 it:
   site_settings:
-    user_notes_enabled: "Abilitare gli utenti dello staff ad allegare note agli utenti"
-    user_notes_moderators_delete: "Abilita i moderatori a cancellare le note degli utenti"
+    user_notes_enabled: "Abilitare i membri dello staff ad allegare note agli utenti"
+    user_notes_moderators_delete: "Abilita i moderatori a cancellare le note utente"
   user_notes:
     official_warning: "Ha ricevuto un richiamo ufficiale da @%{username} -- %{warning_link}"
-    user_suspended: "@%{username} ha sospeso questo account fino a %{suspended_till}. Motivazione: %{reason}"
-    user_silenced: "@%{username} ha silenziato questo account fino a %{silenced_till}. Motivazione: %{reason}"
+    user_suspended: "@%{username} ha sospeso questo account fino a %{suspended_till}. Motivo: %{reason}"
+    user_silenced: "@%{username} ha silenziato questo account fino a %{silenced_till}. Motivo: %{reason}"
   reports:
     user_notes:
       title: "Note utente"
