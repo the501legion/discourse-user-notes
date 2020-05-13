@@ -86,7 +86,8 @@ export default {
         return dec.attach("post-admin-menu-button", {
           icon: "pencil-alt",
           label: "user_notes.attach",
-          action: "showUserNotes"
+          action: "showUserNotes",
+          secondaryAction: "closeAdminMenu"
         });
       });
 
