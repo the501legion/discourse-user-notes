@@ -83,12 +83,15 @@ export default {
       });
 
       api.decorateWidget("post-admin-menu:after", dec => {
-        return dec.attach("post-admin-menu-button", {
-          icon: "pencil-alt",
-          label: "user_notes.attach",
-          action: "showUserNotes",
-          secondaryAction: "closeAdminMenu"
-        });
+        return dec.h(
+          "ul",
+          dec.attach("post-admin-menu-button", {
+            icon: "pencil-alt",
+            label: "user_notes.attach",
+            action: "showUserNotes",
+            secondaryAction: "closeAdminMenu"
+          })
+        );
       });
 
       api.attachWidgetAction("post", "showUserNotes", widgetshowUserNotes);
