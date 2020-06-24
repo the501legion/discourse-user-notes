@@ -11,6 +11,6 @@ it:
       title: "Note Utente"
       attach: "Aggiungi nota utente"
       remove: "Rimuovi Nota Utente"
-      show: "Note utente ({{count}})"
+      show: "Note dell&#39;utente (%{count})"
       delete_confirm: "Sei sicuro di voler cancellare questa nota utente?"
       show_post: "Mostra Messaggio"

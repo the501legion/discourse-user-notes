@@ -11,6 +11,6 @@ fr:
       title: "Notes d'utilisateur"
       attach: "Ajouter note sur utilisateur"
       remove: "Supprimer la note d'utilisateur"
-      show: "Notes d'utilisateur ({{count}})"
+      show: "Notes d'utilisateur (%{count})"
       delete_confirm: "Voulez-vous vraiment supprimer cette note d'utilisateur ?"
       show_post: "Afficher message"
