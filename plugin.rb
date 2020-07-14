@@ -200,7 +200,14 @@ after_initialize do
     end
   end
 
-  whitelist_staff_user_custom_field(COUNT_FIELD)
+
+  # TODO Drop after Discourse 2.6.0 release
+  if respond_to?(:whitelist_staff_user_custom_field)
+    whitelist_staff_user_custom_field(COUNT_FIELD)
+  else
+    allow_staff_user_custom_field(COUNT_FIELD)
+  end
+
 
   add_to_class(Guardian, :can_delete_user_notes?) do
     (SiteSetting.user_notes_moderators_delete? && user.staff?) || user.admin?
