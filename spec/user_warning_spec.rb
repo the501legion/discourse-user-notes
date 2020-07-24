@@ -24,7 +24,7 @@ describe UserWarning do
 
         warning = UserWarning.create!(topic_id: topic.id, user_id: user.id, created_by_id: admin.id)
         warning.destroy!
-        
+
         I18n.with_locale(:fr) do # Simulate request from french user
           UserWarning.create(topic_id: topic.id, user_id: user.id, created_by_id: admin.id)
         end
