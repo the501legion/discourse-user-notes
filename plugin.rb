@@ -201,10 +201,10 @@ after_initialize do
   end
 
   # TODO Drop after Discourse 2.6.0 release
-  if respond_to?(:whitelist_staff_user_custom_field)
-    whitelist_staff_user_custom_field(COUNT_FIELD)
-  else
+  if respond_to?(:allow_staff_user_custom_field)
     allow_staff_user_custom_field(COUNT_FIELD)
+  else
+    whitelist_staff_user_custom_field(COUNT_FIELD)
   end
 
   add_to_class(Guardian, :can_delete_user_notes?) do
