@@ -1,9 +1,8 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 pl_PL:
   js:
@@ -11,5 +10,6 @@ pl_PL:
       title: "Notatki do użytkownika"
       attach: "Dodaj notatkę do użytkownika"
       remove: "Usuń notatkę do użytkownika"
+      show: "Notatki do użytkownika (%{count})"
       delete_confirm: "Czy na pewno chcesz usunąć tę notatkę do użytkownika?"
       show_post: "Pokaż wiadomość"

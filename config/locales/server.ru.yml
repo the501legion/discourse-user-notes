@@ -1,9 +1,8 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 ru:
   site_settings:
@@ -12,7 +11,7 @@ ru:
   user_notes:
     official_warning: "Получено официальное предупреждение от @%{username} -- %{warning_link}"
     user_suspended: "@%{username} приостановил этот аккаунт до %{suspended_till}. Причина: %{reason}"
-    user_silenced: "@%{username} заглушил этот аккаунт %{silenced_till}. Причина: %{reason}"
+    user_silenced: "@%{username} заблокировал этот аккаунт до %{silenced_till}. Причина: %{reason}"
   reports:
     user_notes:
       title: "Заметки пользователя"

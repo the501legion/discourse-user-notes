@@ -1,13 +1,17 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 fa_IR:
+  site_settings:
+    user_notes_moderators_delete: "به مدیران اجازه دهید یادداشت‌های کاربر را حذف کنند"
   reports:
     user_notes:
+      title: "یادداشت‌های کاربر"
+      description: "فهرست جدیدترین یادداشت‌های کاربر."
       labels:
         user: کاربر
+        note: یادداشت
         moderator: مدیر

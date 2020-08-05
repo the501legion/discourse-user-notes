@@ -1,15 +1,15 @@
-# encoding: utf-8
-#
-# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
 #
 # To work with us on translations, join this project:
-# https://www.transifex.com/projects/p/discourse-org/
+# https://translate.discourse.org/
 
 sl:
   js:
     user_notes:
-      title: "Opomba osebja"
-      attach: "Dodaj opombo osebja"
-      remove: "Odstrani opombo osebja"
-      delete_confirm: "Ali želite odstraniti opombo osebja?"
+      title: "Opombe k uporabniku"
+      attach: "Dodaj opombo k uporabniku"
+      remove: "Odstrani opombo k uporabniku"
+      show: "Opomb k uporabniku (%{count})"
+      delete_confirm: "Ali želite odstraniti opombo k uporabniku?"
       show_post: "Prikaži prispevek"
