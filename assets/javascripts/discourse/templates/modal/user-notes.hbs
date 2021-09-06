@@ -19,6 +19,16 @@
           <span class="username">{{n.created_by.username}}</span>
           <span class="post-date">{{age-with-tooltip n.created_at}}</span>
 
+          {{#if n.can_edit}}
+            <span class="controls">
+              {{d-button action=(action "editNote" n)
+                icon="pencil-alt"
+                class="btn-small btn-warning"
+                title="user_notes.edit"
+              }}
+            </span>
+          {{/if}}
+
           {{#if n.can_delete}}
             <span class="controls">
               {{d-button action=(action "removeNote" n)

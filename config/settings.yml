@@ -2,6 +2,9 @@ plugins:
   user_notes_enabled:
     default: false
     client: true
+  user_notes_moderators_edit:
+    default: true
+    client: false
   user_notes_moderators_delete:
     default: true
     client: false

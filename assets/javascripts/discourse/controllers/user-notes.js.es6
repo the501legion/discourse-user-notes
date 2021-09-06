@@ -53,6 +53,10 @@ export default Controller.extend({
         .finally(() => this.set("saving", false));
     },
 
+    editNote(note) {
+      console.log("Edit note");
+    },
+
     removeNote(note) {
       bootbox.confirm(
         I18n.t("user_notes.delete_confirm"),

@@ -76,6 +76,7 @@ after_initialize do
       :raw,
       :created_by,
       :created_at,
+      :can_edit,
       :can_delete,
       :post_id,
       :post_url,
@@ -100,6 +101,10 @@ after_initialize do
 
     def created_at
       object[:created_at]
+    end
+
+    def can_edit
+      scope.can_edit_user_notes?
     end
 
     def can_delete
@@ -205,6 +210,10 @@ after_initialize do
     allow_staff_user_custom_field(COUNT_FIELD)
   else
     whitelist_staff_user_custom_field(COUNT_FIELD)
+  end
+
+  add_to_class(Guardian, :can_edit_user_notes?) do
+    (SiteSetting.user_notes_moderators_edit? && user.staff?) || user.admin?
   end
 
   add_to_class(Guardian, :can_delete_user_notes?) do

@@ -3,6 +3,7 @@ en:
     user_notes:
       title: "User Notes"
       attach: "Add User Note"
+      edit: "Bearbeite Benutzer-Notiz"
       remove: "Remove User Note"
       show: "User Notes (%{count})"
       delete_confirm: "Are you sure you want to delete that user note?"
